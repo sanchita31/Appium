@@ -62,8 +62,10 @@ public static	AppiumDriver<MobileElement> driver;
 	}
 	
 	@BeforeTest
-	public void start() throws InterruptedException {
-		setUp();
+	public void start() throws InterruptedException, MalformedURLException {
+		System.out.println("In method BeforeTest");
+		AppStartup();
+		System.out.println("Exiting methdod BeforeTest");
 	}
 	
 	@AfterTest
