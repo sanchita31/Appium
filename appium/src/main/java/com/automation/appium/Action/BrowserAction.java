@@ -1,19 +1,26 @@
 package com.automation.appium.Action;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class BrowserAction {
 	
-public static	WebDriver driver;
+public static	AppiumDriver<MobileElement> driver;
 	
-	@BeforeTest
-	public void setUp() throws InterruptedException {
+
+	
+	static void setUp() throws InterruptedException {/*
 		System.out.println("Starting........TestNGWith Parameter");
 		String path = System.getProperty("user.dir");
 		WebDriverManager .chromedriver().setup();
@@ -27,7 +34,38 @@ public static	WebDriver driver;
 		driver.manage().deleteAllCookies();
 		driver.get(baseUrl);
 		
+	*/}
+	
+	static void AppStartup() throws InterruptedException, MalformedURLException {
+		System.out.println("Starting........TestNGWith Parameter");
+		
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability("deviceName", "Mi");
+		cap.setCapability("udid", " udid value");
+		cap.setCapability("platformName", "Android");
+		cap.setCapability("platformValue", "7.1.2");
+		cap.setCapability("appPackage", " appPackageValue ");
+		cap.setCapability("appActivity", "appActivityValue");
+		
+		
+		URL url = new URL("http://127.0.0.1/wd/hub");
+		
+		driver = new AppiumDriver<MobileElement>(url, cap);
+		
+		
+		System.out.println("App started");
+		
+		
+		
+		
+		
 	}
+	
+	@BeforeTest
+	public void start() throws InterruptedException {
+		setUp();
+	}
+	
 	@AfterTest
 	public void closeBrowser() {
 		driver.close();
