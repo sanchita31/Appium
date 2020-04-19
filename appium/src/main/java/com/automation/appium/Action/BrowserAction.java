@@ -40,15 +40,15 @@ public static	AppiumDriver<MobileElement> driver;
 		System.out.println("Starting........TestNGWith Parameter");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability("deviceName", "Mi");
-		cap.setCapability("udid", " udid value");
+		cap.setCapability("deviceName", "OPPO A5");
+		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
 		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformValue", "7.1.2");
-		cap.setCapability("appPackage", " appPackageValue ");
-		cap.setCapability("appActivity", "appActivityValue");
+		cap.setCapability("platformValue", "8.1.0");
+		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug1.6.0");
+		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.MainActivity");
 		
 		
-		URL url = new URL("http://127.0.0.1/wd/hub");
+		URL url = new URL("http://localhost:4723/wd/hub");
 		
 		driver = new AppiumDriver<MobileElement>(url, cap);
 		
