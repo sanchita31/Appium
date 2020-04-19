@@ -44,7 +44,7 @@ public static	AppiumDriver<MobileElement> driver;
 		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
 		cap.setCapability("platformName", "Android");
 		cap.setCapability("platformValue", "8.1.0");
-		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug1.6.0");
+		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
 		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.MainActivity");
 		
 		
