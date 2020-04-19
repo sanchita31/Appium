@@ -43,12 +43,13 @@ public static	AppiumDriver<MobileElement> driver;
 		cap.setCapability("deviceName", "OPPO A5");
 		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
 		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformValue", "8.1.0");
+		cap.setCapability("platformVersion", "8.1.0");
+		cap.setCapability("noReset","true");
+		cap.setCapability("autoGrantPermissions","true");
 		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
-		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.MainActivity");
+		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.SplashActivity");
 		
-		
-		URL url = new URL("http://localhost:4723/wd/hub");
+		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		
 		driver = new AppiumDriver<MobileElement>(url, cap);
 		
