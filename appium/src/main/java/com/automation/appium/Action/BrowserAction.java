@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeTest;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -55,10 +56,9 @@ public static	AppiumDriver<MobileElement> driver;
 		
 		
 		System.out.println("App started");
-		
-		
-		
-		
+		Thread.sleep(3000);
+		//TouchAction  ts= new TouchAction(driver);
+		//ts.press(32,56).moveTo(0,1296).release().perform();
 		
 	}
 	
