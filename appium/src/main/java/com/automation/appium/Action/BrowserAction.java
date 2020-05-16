@@ -3,7 +3,9 @@ package com.automation.appium.Action;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
@@ -56,10 +58,38 @@ public static	AppiumDriver<MobileElement> driver;
 		
 		
 		System.out.println("App started");
-		Thread.sleep(3000);
-		//TouchAction  ts= new TouchAction(driver);
-		//ts.press(32,56).moveTo(0,1296).release().perform();
+		Thread.sleep(5000);
 		
+		driver.findElement(By.id("navigation_profile")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("btn_login")).click();
+	
+		//WebElement username =driver.findElement(By.id("et_email_address"));
+		//WebElement password =driver.findElement(By.id("et_password"));
+		
+		WebElement username=driver.findElement(By.id("et_email_address"));
+        WebElement password=driver.findElement(By.id("et_password"));
+		
+		username.sendKeys("febchem@gmail.com");
+		password.sendKeys("Test1234!");
+	
+		driver.findElement(By.id("btn_login")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("btn_schedule_appointment")).click();
+		Thread.sleep(1000);
+		//WebElement service=driver.findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[5]/android.widget.TextView\n" + 
+		//		""));
+		//service.click();
+		
+		WebElement service=driver.findElement(By.xpath("(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[4]"));
+		try {
+			service.click();
+		} catch (Exception e) {
+			
+			
+			System.out.println(e);
+		}
+		//(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_name'])[1]
 	}
 	
 	@BeforeTest
