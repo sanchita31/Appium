@@ -12,9 +12,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.google.common.collect.ImmutableMap;
+
 public class ActionDriver {
 
 	public static WebDriver driver;
+	JavascriptExecutor exe = (JavascriptExecutor) driver;
 
 	public ActionDriver(WebDriver driver) {
 		this.driver = driver;
@@ -51,6 +54,46 @@ public class ActionDriver {
 		try {
 			isElementDisplayed(ele);
 			ele.click();
+		} catch (Exception e) {
+			Assert.fail("Element not clickable", e);
+		}
+
+	}
+
+	public void swipeDown(WebElement ele) {
+
+		try {
+			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "down"));
+		} catch (Exception e) {
+			Assert.fail("Element not clickable", e);
+		}
+
+	}
+
+	public void swipeUp(WebElement ele) {
+
+		try {
+			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "up"));
+		} catch (Exception e) {
+			Assert.fail("Element not clickable", e);
+		}
+
+	}
+
+	public void swipeLeft(WebElement ele) {
+
+		try {
+			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "left"));
+		} catch (Exception e) {
+			Assert.fail("Element not clickable", e);
+		}
+
+	}
+
+	public void swipeRight(WebElement ele) {
+
+		try {
+			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "right"));
 		} catch (Exception e) {
 			Assert.fail("Element not clickable", e);
 		}
