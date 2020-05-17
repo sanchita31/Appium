@@ -43,6 +43,26 @@ public static	AppiumDriver<MobileElement> driver;
 		
 	}
 	
+	static void AppStartup1() throws InterruptedException, MalformedURLException {
+		System.out.println("Starting........TestNGWith Parameter");
+		
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability("deviceName", "One Plus 5");
+		cap.setCapability("udid", "4079254e");
+		cap.setCapability("platformName", "Android");
+		cap.setCapability("platformValue", "9.0.11");
+		cap.setCapability("automationName", "UiAutomator1");
+		cap.setCapability("appPackage", "com.oneplus.calculator");
+		cap.setCapability("appActivity", "com.oneplus.calculator.Calculator");
+		
+		URL url = new URL("http://127.0.0.1:4723/wd/hub");
+		driver = new AppiumDriver<MobileElement>(url, cap);
+		System.out.println("App started");
+		Thread.sleep(5000);
+		
+		
+	}
+	
 	@BeforeTest
 	public void start() throws InterruptedException, MalformedURLException {
 		AppStartup();

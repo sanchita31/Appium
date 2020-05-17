@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 import com.automation.appium.Action.ActionDriver;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
 public class ServicesElement extends ActionDriver{
-	public ServicesElement(WebDriver driver) {
+	public ServicesElement(AppiumDriver<MobileElement> driver) {
 		super(driver);
 	}
 	

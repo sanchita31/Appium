@@ -7,7 +7,7 @@ import com.automation.appium.Action.ManagerInitializerAction;
 public class First extends ManagerInitializerAction {
 	
 	
-	@Test
+	@Test(priority = 1)
 	public void LoginIntoApp()  {
 		System.out.println("Sarting the test");
 		
@@ -17,6 +17,7 @@ public class First extends ManagerInitializerAction {
 		
 	
 }
+	
 	
 	
 }
