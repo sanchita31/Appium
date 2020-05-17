@@ -6,9 +6,12 @@ import org.testng.Assert;
 
 import com.automation.appium.WebElements.LoginElement;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
 public class LoginFunction extends LoginElement{
 	
-	public LoginFunction(WebDriver driver) {
+	public LoginFunction(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
@@ -22,6 +25,19 @@ public class LoginFunction extends LoginElement{
 				password.sendKeys(pass);
 				
 				login.click();
+				
+			}catch(Exception e) {
+				Assert.fail("Failed to login", e);
+			}
+		}
+		
+		
+		public void appCalc() {
+			try {
+				two.click();
+				plus.click();
+				clickElement(three);
+				equals.click();
 				
 			}catch(Exception e) {
 				Assert.fail("Failed to login", e);

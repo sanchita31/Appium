@@ -14,16 +14,20 @@ import org.testng.Assert;
 
 import com.google.common.collect.ImmutableMap;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
 public class ActionDriver {
 
-	public static WebDriver driver;
-	JavascriptExecutor exe = (JavascriptExecutor) driver;
-
-	public ActionDriver(WebDriver driver) {
+	public AppiumDriver<MobileElement> driver;
+	
+	public ActionDriver(AppiumDriver<MobileElement> driver) {
 		this.driver = driver;
 	}
+	
+	JavascriptExecutor exe = (JavascriptExecutor) driver;
 
-	public static void reportLog(String message) throws IOException {
+	public void reportLog(String message) throws IOException {
 		TakesScreenshot sc = (TakesScreenshot) driver;
 		File srFfile = sc.getScreenshotAs(OutputType.FILE);
 		String userDir = System.getenv("user.dir");
@@ -41,11 +45,10 @@ public class ActionDriver {
 
 	public void isElementDisplayed(WebElement ele) {
 
-		try {
-			ele.isDisplayed();
+		if (ele.isDisplayed()) {
 			System.out.println("Element is available for operation");
-		} catch (Exception e) {
-			Assert.fail("Element not avilable", e);
+		} else {
+			Assert.fail("Element not avilable");
 		}
 	}
 
@@ -70,7 +73,7 @@ public class ActionDriver {
 
 	}
 
-	public void swipeUp(WebElement ele) {
+	public void swipeUp() {
 
 		try {
 			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "up"));
@@ -80,7 +83,7 @@ public class ActionDriver {
 
 	}
 
-	public void swipeLeft(WebElement ele) {
+	public void swipeLeft() {
 
 		try {
 			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "left"));
@@ -90,7 +93,7 @@ public class ActionDriver {
 
 	}
 
-	public void swipeRight(WebElement ele) {
+	public void swipeRight() {
 
 		try {
 			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "right"));

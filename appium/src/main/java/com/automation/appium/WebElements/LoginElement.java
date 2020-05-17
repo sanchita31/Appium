@@ -6,8 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 import com.automation.appium.Action.ActionDriver;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+
 public class LoginElement extends ActionDriver{
-	public LoginElement(WebDriver driver) {
+	public LoginElement(AppiumDriver<MobileElement> driver) {
 		super(driver);
 	}
 	//Profile Section
@@ -24,5 +27,21 @@ public class LoginElement extends ActionDriver{
 	
 	@FindBy(xpath="btn_login")
 	public WebElement login ;
+	
+	@FindBy(id="com.oneplus.calculator:id/digit_2")
+	public WebElement two ;
+	
+	@FindBy(id="com.oneplus.calculator:id/digit_3")
+	public WebElement three ;
+	
+	@FindBy(id="com.oneplus.calculator:id/op_add")
+	public WebElement plus ;
+	
+	
+	@FindBy(id="com.oneplus.calculator:id/eq")
+	public WebElement equals ;
+	
+	@FindBy(id="com.oneplus.calculator:id/digit_5")
+	public WebElement five ;
 
 }

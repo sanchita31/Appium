@@ -1,15 +1,15 @@
 package com.automation.appium.functions;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
-import com.automation.appium.WebElements.LoginElement;
 import com.automation.appium.WebElements.ServicesElement;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 
 public class ServicesFunction extends ServicesElement{
 	
-	public ServicesFunction(WebDriver driver) {
+	public ServicesFunction(AppiumDriver<MobileElement> driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}

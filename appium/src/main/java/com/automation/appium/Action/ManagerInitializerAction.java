@@ -11,6 +11,8 @@ public class ManagerInitializerAction extends BrowserAction {
 	protected LoginFunction login ;
 	protected AppointmentFunction ap ;
 	protected ServicesFunction service ;
+	protected ActionDriver genActios ;
+	
 	
 	
 	@BeforeMethod
@@ -18,6 +20,7 @@ public class ManagerInitializerAction extends BrowserAction {
 		login = new LoginFunction(driver);
 		ap = new AppointmentFunction(driver);
 		service = new ServicesFunction(driver);
+		genActios = new ActionDriver(driver);
 		
 	}
 
