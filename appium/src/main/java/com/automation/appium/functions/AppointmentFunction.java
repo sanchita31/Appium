@@ -18,7 +18,7 @@ public class AppointmentFunction extends AppointmentElement {
 	}
 
 	public void scheduleAppointment() {
-		swipeLeft();
+		//swipeLeft();
 		clickElement(scheduleAppointment);
 	}
 }

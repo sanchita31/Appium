@@ -10,10 +10,19 @@ public class First extends ManagerInitializerAction {
 	@Test(priority = 1)
 	public void LoginIntoApp()  {
 		System.out.println("Sarting the test");
-		
+		//genActios.swipeLeft();
+		//genActios.swipeRight();
+		//genActios.swipeRight();
 		login.appLogin();
+		
+		//ap.scheduleAppointment();
+		
+		service.selectSkinCare();
+		genActios.swipeUp();
 		ap.scheduleAppointment();
-		service.selectService();
+		
+		
+	
 		
 	
 }

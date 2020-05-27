@@ -17,17 +17,19 @@ public class LoginElement extends ActionDriver{
 	@FindBy(id="navigation_profile")
 	public WebElement profile ;
 	
+	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
+	public WebElement bookIcon ;
 	
 	//Login Section 	
 	@FindBy(id="et_email_address")
 	public WebElement userName ;
 	
-	@FindBy(xpath="et_password")
+	@FindBy(id="et_password")
 	public WebElement password ;
 	
-	@FindBy(xpath="btn_login")
+	@FindBy(id="btn_login")
 	public WebElement login ;
-	
+
 	@FindBy(id="com.oneplus.calculator:id/digit_2")
 	public WebElement two ;
 	

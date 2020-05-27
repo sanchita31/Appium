@@ -14,10 +14,25 @@ public class ServicesFunction extends ServicesElement{
 		PageFactory.initElements(driver, this);
 	}
 
-		public void selectService() {
+		/*public void selectService() {
 			
 			clickElement(skinCare);
 			clickElement(customizedFacials);
 			
+		}*/
+		
+		public void selectSkinCare() {
+			
+			clickElement(skinCare);
+			clickElement(customizedFacials);
+			clickElement(facialSixty);
+			clickElement(firstenhance);
+			clickElement(next);
+			swipeUp();
+			
+			clickElement(readyToSchedule);
+			clickElement(cont);
+			clickElement(therapist);
+						
 		}
 	}

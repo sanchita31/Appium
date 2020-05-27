@@ -21,10 +21,23 @@ public class LoginFunction extends LoginElement{
 				String username = "febchem@gmail.com";
 				String pass = "Test1234!";
 				
+				clickElement(profile);
+				
+				
+				//clickElement(login);
+				Thread.sleep(5000);
+				
+				clickElement(login);
+				
+				//login.click();
+				
 				userName.sendKeys(username);
 				password.sendKeys(pass);
 				
 				login.click();
+				Thread.sleep(5000);
+		
+				clickElement(bookIcon);
 				
 			}catch(Exception e) {
 				Assert.fail("Failed to login", e);
