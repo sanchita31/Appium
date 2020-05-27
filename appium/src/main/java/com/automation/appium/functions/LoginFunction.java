@@ -1,11 +1,14 @@
 package com.automation.appium.functions;
 
+import java.util.List;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import com.automation.appium.WebElements.LoginElement;
+import com.automation.appium.generic.ExcelReader;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -16,14 +19,17 @@ public class LoginFunction extends LoginElement{
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}
-
+	ExcelReader excel = new ExcelReader();
 		public void appLogin() {
 			try {
-				String username = "febchem@gmail.com";
-				String pass = "Test1234!";
+				
+				List<String> userCred  = excel.getDetails("DataSheet", "Login");
+				
+				String username = userCred.get(0).toString().trim();
+				String pass = userCred.get(1).toString().trim();
 				
 				clickElement(profile);
-				
+				reportLog("appLogin");
 				
 				//clickElement(login);
 				Thread.sleep(5000);

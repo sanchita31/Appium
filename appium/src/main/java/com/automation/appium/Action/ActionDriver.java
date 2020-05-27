@@ -44,7 +44,7 @@ public class ActionDriver extends ExcelReader{
 		LocalDateTime ld = LocalDateTime.now();
 		int s = ld.getSecond();
 		int ns = ld.getNano();
-		String fileName = String.valueOf(s) + String.valueOf(ns);
+		String fileName = message+String.valueOf(s) + String.valueOf(ns);
 		String filePath = userDir + "\\target\\screenshots\\"+fileName+".png";
 		File f = new File(filePath);
 		File destFile = new File(f.toString());
@@ -160,9 +160,9 @@ public class ActionDriver extends ExcelReader{
         int endPoint = (int) (size.height * endPercentage);
  
         new TouchAction(driver)
-                .press(PointOption.point(500, 300))
+                .press(PointOption.point(anchor, startPoint))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-                .moveTo(PointOption.point(500, 1500))
+                .moveTo(PointOption.point(anchor, endPoint))
                 .release().perform();
     }
     
