@@ -51,21 +51,24 @@ public static	AppiumDriver<MobileElement> driver;
 		cap.setCapability("udid", "4079254e");
 		cap.setCapability("platformName", "Android");
 		cap.setCapability("platformValue", "9.0.11");
-		cap.setCapability("automationName", "UiAutomator1");
-		cap.setCapability("appPackage", "com.oneplus.calculator");
+		cap.setCapability("automationName", "uiautomator1");
+		/*cap.setCapability("appPackage", "com.oneplus.calculator");
 		cap.setCapability("appActivity", "com.oneplus.calculator.Calculator");
+		*/
+		
+		cap.setCapability("appPackage", "com.bigbasket.mobileapp");
+		cap.setCapability("appActivity", "com.bigbasket.mobileapp.activity.SplashActivity");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AppiumDriver<MobileElement>(url, cap);
 		System.out.println("App started");
 		Thread.sleep(5000);
 		
-		
 	}
 	
 	@BeforeTest
 	public void start() throws InterruptedException, MalformedURLException {
-		AppStartup();
+		AppStartup1();
 		System.out.println("App started successfully");
 	}
 	

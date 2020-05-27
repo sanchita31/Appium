@@ -1,5 +1,6 @@
 package com.automation.appium.functions;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -52,6 +53,31 @@ public class LoginFunction extends LoginElement{
 				clickElement(three);
 				equals.click();
 				
+			}catch(Exception e) {
+				Assert.fail("Failed to login", e);
+			}
+		}
+		
+		public void appCBigbaskt() {
+			try {
+				tapByCoordinates1();
+				verticalSwipeByPercentages(0.6, 0.3, 0.5);
+				horizontalSwipeByPercentage(0.6, 0.3, 0.2);
+				//MobileElement ele = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc='Product Image'])[4]/.."));
+				tapByCoordinates(95,236);
+				Thread.sleep(5000);
+				//searchHomeView.setValue("fruits");
+			/*	MobileElement element = (MobileElement) driver.findElementById("com.bigbasket.mobileapp:id/searchView");
+				
+				element.click();*/
+				JavascriptExecutor js = (JavascriptExecutor)driver;
+				js.executeScript("arguments[0].value='Test';", searchHomeView);
+				//element.setT
+				driver.navigate().back();
+				searchHomeView.sendKeys("fruits");
+				
+				/*searchIcon.click();
+				search.sendKeys("Fruits");*/
 			}catch(Exception e) {
 				Assert.fail("Failed to login", e);
 			}

@@ -45,5 +45,19 @@ public class LoginElement extends ActionDriver{
 	
 	@FindBy(id="com.oneplus.calculator:id/digit_5")
 	public WebElement five ;
+	
+	@FindBy(xpath="(//android.widget.ImageView[@content-desc='Product Image'])[4]/..")
+	public WebElement searchIcon ;
+	
+	@FindBy(id="com.bigbasket.mobileapp:id/homePageSearchBox")
+	public WebElement searchHomeBox ;
+	
+	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
+	public WebElement searchHomeView ;
+	
+	
+	
+	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
+	public WebElement search ;
 
 }

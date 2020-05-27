@@ -10,7 +10,7 @@ public class Calc extends ManagerInitializerAction {
 	@Test(priority = 0)
 	public void calc()  {
 		
-		login.appCalc();
+		login.appCBigbaskt();
 		System.out.println("Executed");
 		
 	}

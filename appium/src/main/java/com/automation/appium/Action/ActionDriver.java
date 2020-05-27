@@ -2,9 +2,11 @@ package com.automation.appium.Action;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 import org.aspectj.util.FileUtil;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -12,12 +14,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.automation.appium.generic.ExcelReader;
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidTouchAction;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
-public class ActionDriver {
+public class ActionDriver extends ExcelReader{
 
 	public AppiumDriver<MobileElement> driver;
 	
@@ -30,15 +39,15 @@ public class ActionDriver {
 	public void reportLog(String message) throws IOException {
 		TakesScreenshot sc = (TakesScreenshot) driver;
 		File srFfile = sc.getScreenshotAs(OutputType.FILE);
-		String userDir = System.getenv("user.dir");
+		String userDir = System.getProperty("user.dir");
 
 		LocalDateTime ld = LocalDateTime.now();
 		int s = ld.getSecond();
 		int ns = ld.getNano();
 		String fileName = String.valueOf(s) + String.valueOf(ns);
-		String filePath = userDir + "//target//screenshots";
+		String filePath = userDir + "\\target\\screenshots\\"+fileName+".png";
 		File f = new File(filePath);
-		File destFile = new File(f + fileName + ".png");
+		File destFile = new File(f.toString());
 		System.out.println("Output file is :" + destFile);
 		FileUtil.copyFile(srFfile, destFile);
 	}
@@ -62,8 +71,18 @@ public class ActionDriver {
 		}
 
 	}
+	
+	public void jsClick(WebElement ele) {
 
-	public void swipeDown(WebElement ele) {
+		try {
+			exe.executeScript("", ele);
+		} catch (Exception e) {
+			Assert.fail("Element not clickable", e);
+		}
+
+	}
+
+	public void swipeDown() {
 
 		try {
 			exe.executeScript("mobile: scroll", ImmutableMap.of("direction", "down"));
@@ -102,5 +121,55 @@ public class ActionDriver {
 		}
 
 	}
+	
+	//private AndroidDriver androidDriver;
+	
+	public void tapByCoordinates () {
+		//androidDriver = (AndroidDriver) driver;
+		AndroidTouchAction ata = new AndroidTouchAction(driver);
+		ata.tap(TapOptions.tapOptions().withPosition(PointOption.point(500, 500)));
+		System.err.println("Succesfully tapped on the cordinates");
+    }
+	
+	public void tapByCoordinates1 () {
+		
+		new TouchAction(driver)
+        .tap(PointOption.point(500, 500))
+        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(5000))).perform();
+    }
+	
+	
+	//Vertical Swipe by percentages
+    public void verticalSwipeByPercentages(double startPercentage, double endPercentage, double anchorPercentage) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * endPercentage);
+ 
+        new TouchAction(driver)
+                .press(PointOption.point(anchor, startPoint))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+                .moveTo(PointOption.point(anchor, endPoint))
+                .release().perform();
+    }
+    
+    public void horizontalSwipeByPercentage (double startPercentage, double endPercentage, double anchorPercentage) {
+    	Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * endPercentage);
+ 
+        new TouchAction(driver)
+                .press(PointOption.point(500, 300))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
+                .moveTo(PointOption.point(500, 1500))
+                .release().perform();
+    }
+    
+    public void tapByCoordinates (int x,  int y) {
+        new TouchAction(driver)
+                .tap(PointOption.point(x,y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(250))).perform();
+    }
 
 }
