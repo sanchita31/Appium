@@ -26,8 +26,9 @@ import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class ActionDriver extends ExcelReader{
-
+public class ActionDriver extends BrowserAction{
+	
+	//BrowserAction b = new BrowserAction();
 	public AppiumDriver<MobileElement> driver;
 	
 	public ActionDriver(AppiumDriver<MobileElement> driver) {
@@ -36,7 +37,7 @@ public class ActionDriver extends ExcelReader{
 	
 	JavascriptExecutor exe = (JavascriptExecutor) driver;
 
-	public void reportLog(String message) throws IOException {
+	public String reportLog(String message) throws IOException {
 		TakesScreenshot sc = (TakesScreenshot) driver;
 		File srFfile = sc.getScreenshotAs(OutputType.FILE);
 		String userDir = System.getProperty("user.dir");
@@ -50,6 +51,8 @@ public class ActionDriver extends ExcelReader{
 		File destFile = new File(f.toString());
 		System.out.println("Output file is :" + destFile);
 		FileUtil.copyFile(srFfile, destFile);
+		
+		return filePath;
 	}
 
 	public void isElementDisplayed(WebElement ele) {
@@ -171,5 +174,10 @@ public class ActionDriver extends ExcelReader{
                 .tap(PointOption.point(x,y))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(250))).perform();
     }
+    
+    public void enterText(MobileElement ele, String s) {
+        ele.click();
+        ele.setValue(s);
+        }
 
 }

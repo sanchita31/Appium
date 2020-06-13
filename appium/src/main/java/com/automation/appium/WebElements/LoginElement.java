@@ -59,5 +59,14 @@ public class LoginElement extends ActionDriver{
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
 	public WebElement search ;
+	
+	@FindBy(id="action_my_account")
+	public WebElement myAccount ;
+	
+	@FindBy(id="com.bigbasket.mobileapp:id/textInputEmail")
+	public WebElement inputEmail ;
+	
+	@FindBy(id="action_my_account")
+	public MobileElement a ;
 
 }

@@ -1,5 +1,6 @@
 package com.automation.appium.Action;
 
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -8,8 +9,20 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+
+import com.automation.appium.generic.Report;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -18,6 +31,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class BrowserAction {
+	public static ExtentReports extent;
+	public static ExtentHtmlReporter htmlReporter;
+    
 	
 public static	AppiumDriver<MobileElement> driver;
 	
@@ -38,6 +54,8 @@ public static	AppiumDriver<MobileElement> driver;
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AppiumDriver<MobileElement>(url, cap);
 		System.out.println("App started");
+		ExtentTest test = extent.createTest("browser");
+		test.log(Status.PASS, "browserStep");
 		Thread.sleep(5000);
 		
 		
@@ -66,6 +84,13 @@ public static	AppiumDriver<MobileElement> driver;
 		
 	}
 	
+	@BeforeSuite
+	public void beforeSuite() {
+		extent = Report.getInstance("ReportView");
+		/*extent = new ExtentReports();
+		extent.attachReporter(htmlReporter);*/
+	}
+	
 	@BeforeTest
 	public void start() throws InterruptedException, MalformedURLException {
 		AppStartup1();
@@ -77,6 +102,17 @@ public static	AppiumDriver<MobileElement> driver;
 		driver.close(); 
 		System.out.println("Closing Browser Thankyou !!!!");
 	}
+	
+	@AfterSuite(alwaysRun = true)
+	public void tearDown() {
+		
+		
+		extent.flush();
+		System.out.println("Flush");
+	}
+	
+	
+}
   
 
-}
+

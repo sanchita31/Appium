@@ -1,5 +1,6 @@
 package com.automation.appium.Action;
 
+import org.apache.poi.poifs.property.Child;
 import org.testng.annotations.BeforeMethod;
 
 import com.automation.appium.WebElements.IconsElement;
@@ -8,6 +9,7 @@ import com.automation.appium.functions.AppointmentFunction;
 import com.automation.appium.functions.LoginFunction;
 import com.automation.appium.functions.ServicesFunction;
 import com.automation.appium.generic.ExcelReader;
+import com.automation.appium.generic.Report;
 
 public class ManagerInitializerAction extends BrowserAction {
 
@@ -16,14 +18,17 @@ public class ManagerInitializerAction extends BrowserAction {
 	protected ServicesFunction service;
 	protected ActionDriver genActios;
 	protected ExcelReader excel;
+	
 
 	@BeforeMethod
 	public void initialize() {
+		
 		login = new LoginFunction(driver);
 		ap = new AppointmentFunction(driver);
 		service = new ServicesFunction(driver);
 		genActios = new ActionDriver(driver);
 		excel = new ExcelReader();
+		
 	}
 
 }
