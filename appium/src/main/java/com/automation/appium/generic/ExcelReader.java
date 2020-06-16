@@ -17,7 +17,7 @@ public class ExcelReader {
 
 	public List<String> getDetails(String fileName, String sheetName) throws InvalidFormatException {
 		String dir = System.getProperty("user.dir");
-		String path = dir + "//src//main//resources//InputExcel//" + fileName + ".xlsx";
+		String path = dir + "/src/main/resources/InputExcel/" + fileName + ".xlsx";
 		List<String> userDetails = new ArrayList<String>();
 
 		try {

@@ -48,6 +48,9 @@ public static	AppiumDriver<MobileElement> driver;
 		cap.setCapability("platformVersion", "8.1.0");
 		cap.setCapability("noReset","true");
 		cap.setCapability("autoGrantPermissions","true");
+		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
+		//cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
+		
 		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
 		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.SplashActivity");
 		
@@ -65,17 +68,25 @@ public static	AppiumDriver<MobileElement> driver;
 		System.out.println("Starting........TestNGWith Parameter");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability("deviceName", "One Plus 5");
-		cap.setCapability("udid", "4079254e");
+		cap.setCapability("deviceName", "OPPO A5");
+		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
 		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformValue", "9.0.11");
+		cap.setCapability("platformValue", "8.1.0");
 		cap.setCapability("automationName", "uiautomator1");
+		cap.setCapability("noReset","true");
+		cap.setCapability("autoGrantPermissions","true");
 		/*cap.setCapability("appPackage", "com.oneplus.calculator");
 		cap.setCapability("appActivity", "com.oneplus.calculator.Calculator");
 		*/
 		
-		cap.setCapability("appPackage", "com.bigbasket.mobileapp");
-		cap.setCapability("appActivity", "com.bigbasket.mobileapp.activity.SplashActivity");
+		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
+	    //cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
+		
+		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
+	    cap.setCapability("appActivity", "com.massageenvy.consumer.ui.MainActivity");	
+		
+		//cap.setCapability("appPackage", "com.bigbasket.mobileapp");
+		//cap.setCapability("appActivity", "com.bigbasket.mobileapp.activity.SplashActivity");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AppiumDriver<MobileElement>(url, cap);
@@ -93,7 +104,7 @@ public static	AppiumDriver<MobileElement> driver;
 	
 	@BeforeTest
 	public void start() throws InterruptedException, MalformedURLException {
-		AppStartup1();
+		AppStartup();
 		System.out.println("App started successfully");
 	}
 	

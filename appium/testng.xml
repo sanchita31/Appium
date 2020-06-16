@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test thread-count="1" name="Test">
     <classes>
-      <class name="com.automation.appium.Test.Calc"/>
+      <class name="com.automation.appium.Test.First"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

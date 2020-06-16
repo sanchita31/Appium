@@ -20,30 +20,40 @@ import com.aventstack.extentreports.Status;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
-public class LoginFunction extends LoginElement{
+public class LoginFunction extends LoginElement
+{
 	
-	public LoginFunction(AppiumDriver<MobileElement> driver) {
+	
+	public LoginFunction(AppiumDriver<MobileElement> driver) 
+	{
+		
 		super(driver);
 		PageFactory.initElements(driver, this);
+		
 	}
 	ExcelReader excel = new ExcelReader();
 	//ExtentReports report;
 	ExtentTest test;
 		public void appLogin() {
+			
 			try {
+				test = extent.createTest("appCBigbaskt");
+				test.pass("After Swiped", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("swipedVertical")).build());
+				
+				System.out.println("Hello");
+				clickElement(profile);
+				//reportLog("appLogin");
+				clickElement(login);
 				
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
 				
 				String username = userCred.get(0).toString().trim();
 				String pass = userCred.get(1).toString().trim();
 				
-				clickElement(profile);
-				reportLog("appLogin");
-				
+			
 				//clickElement(login);
 				Thread.sleep(5000);
-				
-				clickElement(login);
 				
 				//login.click();
 				
@@ -56,6 +66,7 @@ public class LoginFunction extends LoginElement{
 				clickElement(bookIcon);
 				
 			}catch(Exception e) {
+				e.printStackTrace();
 				Assert.fail("Failed to login", e);
 			}
 		}

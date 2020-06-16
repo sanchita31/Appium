@@ -23,6 +23,7 @@ public class ManagerInitializerAction extends BrowserAction {
 	@BeforeMethod
 	public void initialize() {
 		
+		
 		login = new LoginFunction(driver);
 		ap = new AppointmentFunction(driver);
 		service = new ServicesFunction(driver);

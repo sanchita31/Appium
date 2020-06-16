@@ -15,56 +15,56 @@ public class LoginElement extends ActionDriver{
 	}
 	//Profile Section
 	@FindBy(id="navigation_profile")
-	public WebElement profile ;
+	public MobileElement profile ;
 	
 	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
-	public WebElement bookIcon ;
+	public MobileElement bookIcon ;
 	
 	//Login Section 	
 	@FindBy(id="et_email_address")
-	public WebElement userName ;
+	public MobileElement userName ;
 	
 	@FindBy(id="et_password")
-	public WebElement password ;
+	public MobileElement password ;
 	
 	@FindBy(id="btn_login")
-	public WebElement login ;
+	public MobileElement login ;
 
 	@FindBy(id="com.oneplus.calculator:id/digit_2")
-	public WebElement two ;
+	public MobileElement two ;
 	
 	@FindBy(id="com.oneplus.calculator:id/digit_3")
-	public WebElement three ;
+	public MobileElement three ;
 	
 	@FindBy(id="com.oneplus.calculator:id/op_add")
-	public WebElement plus ;
+	public MobileElement plus ;
 	
 	
 	@FindBy(id="com.oneplus.calculator:id/eq")
-	public WebElement equals ;
+	public MobileElement equals ;
 	
 	@FindBy(id="com.oneplus.calculator:id/digit_5")
-	public WebElement five ;
+	public MobileElement five ;
 	
 	@FindBy(xpath="(//android.widget.ImageView[@content-desc='Product Image'])[4]/..")
-	public WebElement searchIcon ;
+	public MobileElement searchIcon ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/homePageSearchBox")
-	public WebElement searchHomeBox ;
+	public MobileElement searchHomeBox ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public WebElement searchHomeView ;
+	public MobileElement searchHomeView ;
 	
 	
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public WebElement search ;
+	public MobileElement search ;
 	
 	@FindBy(id="action_my_account")
-	public WebElement myAccount ;
+	public MobileElement myAccount ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/textInputEmail")
-	public WebElement inputEmail ;
+	public MobileElement inputEmail ;
 	
 	@FindBy(id="action_my_account")
 	public MobileElement a ;

@@ -15,7 +15,7 @@ public class AppointmentElement extends ActionDriver{
 	}
 	//appointment Section Section
 	@FindBy(id="btn_schedule_appointment")
-	public WebElement scheduleAppointment ;
+	public MobileElement scheduleAppointment ;
 	
 
 }

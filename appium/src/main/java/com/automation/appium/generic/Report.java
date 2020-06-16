@@ -1,5 +1,6 @@
 package com.automation.appium.generic;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.Month;
 
@@ -24,10 +25,13 @@ public class Report {
 	public static ExtentReports getInstance(String testname) {
 		
 		String s = System.getProperty("user.dir");
-		
+		System.out.println(s);
 		
 		testname = testname+"_"+fileName;
-		String path = s+"\\report\\"+testname+".html";
+		String path = s + File.separator+ "report" + File.separator+ testname+".html";
+		
+		System.out.println("path");
+		System.out.println(path);
 		
 		 htmlReporter = new ExtentHtmlReporter(path);
         

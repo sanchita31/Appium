@@ -46,7 +46,7 @@ public class ActionDriver extends BrowserAction{
 		int s = ld.getSecond();
 		int ns = ld.getNano();
 		String fileName = message+String.valueOf(s) + String.valueOf(ns);
-		String filePath = userDir + "\\target\\screenshots\\"+fileName+".png";
+		String filePath = userDir + File.separator +"target"+File.separator + "screenshots"+File.separator +fileName+".png";
 		File f = new File(filePath);
 		File destFile = new File(f.toString());
 		System.out.println("Output file is :" + destFile);
@@ -55,7 +55,7 @@ public class ActionDriver extends BrowserAction{
 		return filePath;
 	}
 
-	public void isElementDisplayed(WebElement ele) {
+	public void isElementDisplayed(MobileElement ele) {
 
 		if (ele.isDisplayed()) {
 			System.out.println("Element is available for operation");
@@ -64,7 +64,7 @@ public class ActionDriver extends BrowserAction{
 		}
 	}
 
-	public void clickElement(WebElement ele) {
+	public void clickElement(MobileElement ele) {
 
 		try {
 			isElementDisplayed(ele);
@@ -75,7 +75,7 @@ public class ActionDriver extends BrowserAction{
 
 	}
 	
-	public void jsClick(WebElement ele) {
+	public void jsClick(MobileElement ele) {
 
 		try {
 			exe.executeScript("", ele);
