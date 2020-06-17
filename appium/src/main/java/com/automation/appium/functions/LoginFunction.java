@@ -34,18 +34,24 @@ public class LoginFunction extends LoginElement
 	ExcelReader excel = new ExcelReader();
 	//ExtentReports report;
 	ExtentTest test;
-		public void appLogin() {
+		public void appLogin() throws IOException {
 			
 			try {
-				test = extent.createTest("appCBigbaskt");
-				test.pass("After Swiped", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("swipedVertical")).build());
+				System.out.println("Entering appLogin method");
+				test = extent.createTest("appLogin");
 				
-				System.out.println("Hello");
+				test.pass("Home Page", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("Home Page")).build());
 				clickElement(profile);
+				test.pass("Profile Page", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("Profile Page")).build());
+				
 				//reportLog("appLogin");
 				clickElement(login);
+				test.pass("Login click", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("Login click")).build());
 				
+				userName.clear();
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
 				
 				String username = userCred.get(0).toString().trim();
@@ -57,17 +63,36 @@ public class LoginFunction extends LoginElement
 				
 				//login.click();
 				
-				userName.sendKeys(username);
-				password.sendKeys(pass);
+				enterText(userName,username);
+				test.pass("user enters credentials", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("user name credentials entered")).build());
 				
-				login.click();
+			
+				
+				try {
+					enterText(password,pass);
+					Thread.sleep(5000);
+					test.pass("password ", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("password")).build());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//userName.sendKeys(username);
+				//password.sendKeys(pass);
+				clickElement(login);
+				//login.click();
 				Thread.sleep(5000);
 		
 				clickElement(bookIcon);
 				
 			}catch(Exception e) {
-				e.printStackTrace();
-				Assert.fail("Failed to login", e);
+				
+				test.fail("Failed Login", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("Failed Login")).build());
+				//e.printStackTrace();
+				//Assert.fail("Failed to login", e);
 			}
 		}
 		
@@ -115,9 +140,6 @@ public class LoginFunction extends LoginElement
 				//horizontalSwipeByPercentage(0.6, 0.3, 0.2);
 				//MobileElement ele = driver.findElement(By.xpath("(//android.widget.ImageView[@content-desc='Product Image'])[4]/.."));
 				//tapByCoordinates(95,236);
-				
-				
-				
 				
 				Thread.sleep(5000);
 				//searchHomeView.setValue("fruits");

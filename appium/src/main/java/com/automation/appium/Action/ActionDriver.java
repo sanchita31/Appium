@@ -55,7 +55,7 @@ public class ActionDriver extends BrowserAction{
 		return filePath;
 	}
 
-	public void isElementDisplayed(MobileElement ele) {
+	public void isElementDisplayed(WebElement ele) {
 
 		if (ele.isDisplayed()) {
 			System.out.println("Element is available for operation");
@@ -64,7 +64,7 @@ public class ActionDriver extends BrowserAction{
 		}
 	}
 
-	public void clickElement(MobileElement ele) {
+	public void clickElement(WebElement ele) {
 
 		try {
 			isElementDisplayed(ele);
@@ -175,9 +175,9 @@ public class ActionDriver extends BrowserAction{
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(250))).perform();
     }
     
-    public void enterText(MobileElement ele, String s) {
+    public void enterText(WebElement ele, String s) {
         ele.click();
-        ele.setValue(s);
+        ele.sendKeys(s);
         }
 
 }

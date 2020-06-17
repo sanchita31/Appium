@@ -15,58 +15,58 @@ public class LoginElement extends ActionDriver{
 	}
 	//Profile Section
 	@FindBy(id="navigation_profile")
-	public MobileElement profile ;
+	public WebElement profile ;
 	
 	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
-	public MobileElement bookIcon ;
+	public WebElement bookIcon ;
 	
 	//Login Section 	
 	@FindBy(id="et_email_address")
-	public MobileElement userName ;
+	public WebElement userName ;
 	
 	@FindBy(id="et_password")
-	public MobileElement password ;
+	public WebElement password ;
 	
 	@FindBy(id="btn_login")
-	public MobileElement login ;
+	public WebElement login ;
 
 	@FindBy(id="com.oneplus.calculator:id/digit_2")
-	public MobileElement two ;
+	public WebElement two ;
 	
 	@FindBy(id="com.oneplus.calculator:id/digit_3")
-	public MobileElement three ;
+	public WebElement three ;
 	
 	@FindBy(id="com.oneplus.calculator:id/op_add")
-	public MobileElement plus ;
+	public WebElement plus ;
 	
 	
 	@FindBy(id="com.oneplus.calculator:id/eq")
-	public MobileElement equals ;
+	public WebElement equals ;
 	
 	@FindBy(id="com.oneplus.calculator:id/digit_5")
-	public MobileElement five ;
+	public WebElement five ;
 	
 	@FindBy(xpath="(//android.widget.ImageView[@content-desc='Product Image'])[4]/..")
-	public MobileElement searchIcon ;
+	public WebElement searchIcon ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/homePageSearchBox")
-	public MobileElement searchHomeBox ;
+	public WebElement searchHomeBox ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public MobileElement searchHomeView ;
+	public WebElement searchHomeView ;
 	
 	
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public MobileElement search ;
+	public WebElement search ;
 	
 	@FindBy(id="action_my_account")
-	public MobileElement myAccount ;
+	public WebElement myAccount ;
 	
 	@FindBy(id="com.bigbasket.mobileapp:id/textInputEmail")
-	public MobileElement inputEmail ;
+	public WebElement inputEmail ;
 	
 	@FindBy(id="action_my_account")
-	public MobileElement a ;
+	public WebElement a ;
 
 }

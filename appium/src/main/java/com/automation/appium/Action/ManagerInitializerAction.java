@@ -23,12 +23,21 @@ public class ManagerInitializerAction extends BrowserAction {
 	@BeforeMethod
 	public void initialize() {
 		
-		
-		login = new LoginFunction(driver);
-		ap = new AppointmentFunction(driver);
-		service = new ServicesFunction(driver);
-		genActios = new ActionDriver(driver);
-		excel = new ExcelReader();
+		try {
+			System.out.println("Before initialize login object");
+			login = new LoginFunction(driver);
+			System.out.println("Before initialize service object");
+			service = new ServicesFunction(driver);
+			ap = new AppointmentFunction(driver);
+			genActios = new ActionDriver(driver);
+			excel = new ExcelReader();
+			System.out.println("Before initialize 2");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Before initialize service object 2");
+			service = new ServicesFunction(driver);
+			e.printStackTrace();
+		}
 		
 	}
 

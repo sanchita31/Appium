@@ -19,8 +19,10 @@ public class Report {
 	static int hrs = ld.getHour();
 	static int min = ld.getMinute();
 	
+	static int sec = ld.getSecond();
+	
 	static String fileName = String.valueOf(date) + String.valueOf(month)+"_"+
-			String.valueOf(hrs) +"_"+ String.valueOf(min);
+			String.valueOf(hrs) +"_"+ String.valueOf(min)+ String.valueOf(sec);
 	
 	public static ExtentReports getInstance(String testname) {
 		
