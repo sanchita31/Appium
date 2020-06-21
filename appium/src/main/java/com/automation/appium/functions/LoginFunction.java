@@ -79,8 +79,9 @@ public class LoginFunction extends LoginElement
 				//alertElement1.sendKeys(pass);
 				
 
-AndroidElement alertElement = (AndroidElement) driver.findElementById("et_email_address");
-alertElement.sendKeys(username);
+				/*AndroidElement alertElement = driver.findElementById("et_email_address");
+				alertElement.sendKeys(username);*/
+				userName.setValue(username);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
 					createScreenCaptureFromPath(reportLog("username")).build());
@@ -90,9 +91,9 @@ alertElement.sendKeys(username);
 					//enterTextByAdb(password, pass, udid);
 					//enterText(passId ,pass);
 					//enterTextSendKeys(password,pass);					
-					
-				AndroidElement alertElement1 = (AndroidElement) driver.findElementById("et_password");
-					alertElement1.sendKeys(pass);
+					password.setValue(pass);
+					/*AndroidElement alertElement1 =  driver.findElementById("et_password");
+					alertElement1.sendKeys(pass);*/
 					
 					Thread.sleep(5000);
 					test.pass("password ", MediaEntityBuilder.
