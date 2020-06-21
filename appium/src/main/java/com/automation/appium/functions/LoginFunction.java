@@ -65,49 +65,18 @@ public class LoginFunction extends LoginElement
 				String pass = userCred.get(1).toString().trim();
 				
 			
-				//clickElement(login);
+				
 				Thread.sleep(5000);
 				
-				//login.click();
+				enterTextSendKeys(userName,username);
 				
-				//enterTextByAdb(userName, username, udid);
-				//enterText(userId ,username);
-				//enterTextSendKeys(userName,username);
-				
-				
-				//alertElement1.sendKeys(pass); 
-				//alertElement1.sendKeys(pass);
-				
-
-				/*AndroidElement alertElement = driver.findElementById("et_email_address");
-				alertElement.sendKeys(username);*/
-				//userName.setValue(username);
-				System.out.println("Trying Process builder ");
-				try {
-				     userName.click();  
-				     new ProcessBuilder(new String[]{"adb", "-s", "SOBAUSGA8LZPHUTK", "shell", "input", "text", username})
-				       .redirectErrorStream(true)
-				       .start();
-				} catch (IOException e) {
-					System.out.println("Process builder not working ");
-				}
-				
-				System.out.println("Trying click and send ");
-				userName.click();
-				driver.getKeyboard().sendKeys(pass);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
 					createScreenCaptureFromPath(reportLog("username")).build());
 				
 				try
 				{
-					//enterTextByAdb(password, pass, udid);
-					//enterText(passId ,pass);
-					//enterTextSendKeys(password,pass);					
-					password.setValue(pass);
-				
-					/*AndroidElement alertElement1 =  driver.findElementById("et_password");
-					alertElement1.sendKeys(pass);*/
+					enterTextSendKeys(password, pass);		
 					
 					Thread.sleep(5000);
 					test.pass("password ", MediaEntityBuilder.
