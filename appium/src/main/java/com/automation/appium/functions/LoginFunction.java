@@ -3,8 +3,10 @@ package com.automation.appium.functions;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
@@ -19,12 +21,16 @@ import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
 public class LoginFunction extends LoginElement
 {
+	By passId = By.id("et_password");
+	By userId = By.id("et_email_address");
 	
 	
-	public LoginFunction(AppiumDriver<MobileElement> driver) 
+	public LoginFunction(AndroidDriver<WebElement> driver) 
 	{
 		
 		super(driver);
@@ -33,7 +39,7 @@ public class LoginFunction extends LoginElement
 	}
 	ExcelReader excel = new ExcelReader();
 	
-		public void appLogin() throws IOException {
+		public void appLogin(String udid) throws IOException {
 			
 			try {
 				System.out.println("Entering appLogin method");
@@ -41,6 +47,7 @@ public class LoginFunction extends LoginElement
 				
 				test.pass("Home Page", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Home Page")).build());
+				
 				clickElement(profile);
 				test.pass("Profile Page", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Profile Page")).build());
@@ -50,7 +57,7 @@ public class LoginFunction extends LoginElement
 				test.pass("Login click", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Login click")).build());
 				
-				userName.clear();
+			//	userName.clear();
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
 				
 				String username = userCred.get(0).toString().trim();
@@ -62,14 +69,30 @@ public class LoginFunction extends LoginElement
 				
 				//login.click();
 				
-				enterText(userName,username);
-				test.pass("user enters credentials", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("user name credentials entered")).build());
+				//enterTextByAdb(userName, username, udid);
+				//enterText(userId ,username);
+				//enterTextSendKeys(userName,username);
 				
-			
 				
-				try {
-					enterText(password,pass);
+				//alertElement1.sendKeys(pass); 
+				//alertElement1.sendKeys(pass);
+				
+
+AndroidElement alertElement = (AndroidElement) driver.findElementById("et_email_address");
+alertElement.sendKeys(username);
+				Thread.sleep(5000);
+				test.pass("username ", MediaEntityBuilder.
+					createScreenCaptureFromPath(reportLog("username")).build());
+				
+				try
+				{
+					//enterTextByAdb(password, pass, udid);
+					//enterText(passId ,pass);
+					//enterTextSendKeys(password,pass);					
+					
+				AndroidElement alertElement1 = (AndroidElement) driver.findElementById("et_password");
+					alertElement1.sendKeys(pass);
+					
 					Thread.sleep(5000);
 					test.pass("password ", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("password")).build());
@@ -77,6 +100,8 @@ public class LoginFunction extends LoginElement
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				
+				
 				
 				//userName.sendKeys(username);
 				//password.sendKeys(pass);
@@ -129,7 +154,7 @@ public class LoginFunction extends LoginElement
 				
 				myAccount.click();
 				
-				enterText(a, "");
+				//enterText(a, "");
 				
 				inputEmail.clear();
 				inputEmail.sendKeys("7755990179");

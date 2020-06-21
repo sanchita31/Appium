@@ -6,6 +6,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 import org.aspectj.util.FileUtil;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -29,9 +30,9 @@ import io.appium.java_client.touch.offset.PointOption;
 public class ActionDriver extends BrowserAction{
 	
 	//BrowserAction b = new BrowserAction();
-	public AppiumDriver<MobileElement> driver;
+	public AndroidDriver<WebElement> driver;
 	
-	public ActionDriver(AppiumDriver<MobileElement> driver) {
+	public ActionDriver(AndroidDriver<WebElement> driver) {
 		this.driver = driver;
 	}
 	
@@ -175,9 +176,47 @@ public class ActionDriver extends BrowserAction{
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(250))).perform();
     }
     
-    public void enterText(WebElement ele, String s) {
+   /* public void enterText(WebElement ele, String s) {
         ele.click();
         ele.sendKeys(s);
+        }*/
+    public void enterText(By ele, String s) throws IOException {
+   	 System.out.println("Enter the value");
+      tapByCoordinates(225, 440);
+   	 
+      ((MobileElement) driver.findElement(ele)).setValue(s);
+      System.out.println("Entered");
+       }
+    
+    public void enterText1(By ele, String s) throws IOException {
+   	 	System.out.println("Entere the value");
+   	 	driver.findElement(ele).click();
+   	 	driver.findElement(ele).clear();
+   	 	driver.getKeyboard().sendKeys(s);
+   	 	System.out.println("Entered");
+       }
+      
+    public void enterTextByJSE(WebElement ele, String s) throws IOException {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+   	 	System.out.println("Entere the value");
+   	    jse.executeScript("arguments[0].value='"+s+"';", (ele));
+   	 	System.out.println("Entered");
+       }
+    
+    public void enterTextByAdb(WebElement ele, String s, String udid) throws IOException {
+        ele.click();
+        new ProcessBuilder(new String[]{"adb", "-s", udid, "shell", "input", "text", s})
+        .redirectErrorStream(true)
+        .start();
+        
         }
-
+    public void enterTextSendKeys(WebElement ele, String s) throws IOException {
+   	 	System.out.println("Entere the value");
+   	 	tapByCoordinates(225, 440);
+   	 	System.out.println("Tapped");
+   	 	(ele).clear();
+   	 	System.out.println("Cleared");
+   	 	ele.sendKeys(s);
+   	 	System.out.println("Entered");
+       }
 }

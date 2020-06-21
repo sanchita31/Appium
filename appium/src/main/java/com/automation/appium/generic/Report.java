@@ -22,7 +22,7 @@ public class Report {
 	static int sec = ld.getSecond();
 	
 	static String fileName = String.valueOf(date) + String.valueOf(month)+"_"+
-			String.valueOf(hrs) +"_"+ String.valueOf(min)+ String.valueOf(sec);
+			String.valueOf(hrs) +"_"+ String.valueOf(min)+"_"+ String.valueOf(sec);
 	
 	public static ExtentReports getInstance(String testname) {
 		

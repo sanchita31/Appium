@@ -8,9 +8,10 @@ import com.automation.appium.Action.ActionDriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 
 public class AppointmentElement extends ActionDriver{
-	public AppointmentElement(AppiumDriver<MobileElement> driver) {
+	public AppointmentElement(AndroidDriver driver) {
 		super(driver);
 	}
 	//appointment Section Section

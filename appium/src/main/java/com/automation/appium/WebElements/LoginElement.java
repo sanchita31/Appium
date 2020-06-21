@@ -8,13 +8,18 @@ import com.automation.appium.Action.ActionDriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginElement extends ActionDriver{
-	public LoginElement(AppiumDriver<MobileElement> driver) {
+	public LoginElement(AndroidDriver<WebElement> driver) {
 		super(driver);
 	}
 	//Profile Section
+	
 	@FindBy(id="navigation_profile")
+	//@FindBy(id="navigation_profile")
 	public WebElement profile ;
 	
 	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")

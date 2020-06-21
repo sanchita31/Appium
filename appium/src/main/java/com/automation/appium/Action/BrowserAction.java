@@ -27,6 +27,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -36,19 +37,23 @@ public class BrowserAction {
 	public static ExtentTest test;
     
 	
-public static	AppiumDriver<MobileElement> driver;
-	
+//public static	AppiumDriver<MobileElement> driver;
+	public static AndroidDriver<WebElement> driver;
 	
 	static void AppStartup() throws InterruptedException, MalformedURLException {
 		System.out.println("Starting........TestNGWith Parameter");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setCapability("ignoreUnimportantViews", true);
+		cap.setCapability("disableAndroidWatchers", true);
+		//cap.setCapability("", true);
 		cap.setCapability("deviceName", "OPPO A5");
 		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
 		cap.setCapability("platformName", "Android");
 		cap.setCapability("platformVersion", "8.1.0");
 		cap.setCapability("noReset","true");
 		cap.setCapability("autoGrantPermissions","true");
+	
 		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
 		//cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
 		
@@ -56,7 +61,7 @@ public static	AppiumDriver<MobileElement> driver;
 		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.SplashActivity");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
-		driver = new AppiumDriver<MobileElement>(url, cap);
+		driver = new AndroidDriver(url, cap);
 		System.out.println("App started");
 		ExtentTest test = extent.createTest("browser");
 		test.log(Status.PASS, "browserStep");
@@ -90,7 +95,7 @@ public static	AppiumDriver<MobileElement> driver;
 		//cap.setCapability("appActivity", "com.bigbasket.mobileapp.activity.SplashActivity");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
-		driver = new AppiumDriver<MobileElement>(url, cap);
+		//driver = new AppiumDriver<MobileElement>(url, cap);
 		System.out.println("App started");
 		Thread.sleep(5000);
 		

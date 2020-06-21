@@ -8,9 +8,10 @@ import com.automation.appium.Action.ActionDriver;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 
 public class ServicesElement extends ActionDriver{
-	public ServicesElement(AppiumDriver<MobileElement> driver) {
+	public ServicesElement(AndroidDriver<WebElement> driver) {
 		super(driver);
 	}
 	
@@ -56,6 +57,8 @@ public class ServicesElement extends ActionDriver{
 	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_select'])[2]")
 	public WebElement therapist;
 
+	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_change_password']")
+	public WebElement scheduleAppointment;
 	
 	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[2]")
 	public WebElement acneService ;
