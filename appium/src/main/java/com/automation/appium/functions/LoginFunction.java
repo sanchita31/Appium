@@ -81,7 +81,20 @@ public class LoginFunction extends LoginElement
 
 				/*AndroidElement alertElement = driver.findElementById("et_email_address");
 				alertElement.sendKeys(username);*/
-				userName.setValue(username);
+				//userName.setValue(username);
+				System.out.println("Trying Process builder ");
+				try {
+				     userName.click();  
+				     new ProcessBuilder(new String[]{"adb", "-s", "SOBAUSGA8LZPHUTK", "shell", "input", "text", username})
+				       .redirectErrorStream(true)
+				       .start();
+				} catch (IOException e) {
+				   e.printStackTrace();
+				}
+				
+				System.out.println("Trying click and send ");
+				userName.click();
+				driver.getKeyboard().sendKeys(pass);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
 					createScreenCaptureFromPath(reportLog("username")).build());
@@ -92,7 +105,7 @@ public class LoginFunction extends LoginElement
 					//enterText(passId ,pass);
 					//enterTextSendKeys(password,pass);					
 					password.setValue(pass);
-					
+				
 					/*AndroidElement alertElement1 =  driver.findElementById("et_password");
 					alertElement1.sendKeys(pass);*/
 					
