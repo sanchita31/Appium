@@ -13,27 +13,27 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginElement extends ActionDriver{
-	public LoginElement(AndroidDriver<WebElement> driver) {
+	public LoginElement(AndroidDriver<AndroidElement> driver) {
 		super(driver);
 	}
 	//Profile Section
 	
-	@FindBy(id="navigation_profile")
+	@AndroidFindBy(id="navigation_profile")
 	//@FindBy(id="navigation_profile")
-	public WebElement profile ;
+	public AndroidElement profile ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
-	public WebElement bookIcon ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
+	public AndroidElement bookIcon ;
 	
 	//Login Section 	
-	@FindBy(id="et_email_address")
-	public WebElement userName ;
+	@AndroidFindBy(id="et_email_address")
+	public AndroidElement userName ;
 	
-	@FindBy(id="et_password")
-	public WebElement password ;
+	@AndroidFindBy(id="et_password")
+	public AndroidElement password ;
 	
-	@FindBy(id="btn_login")
-	public WebElement login ;
+	@AndroidFindBy(id="btn_login")
+	public AndroidElement login ;
 
 	@FindBy(id="com.oneplus.calculator:id/digit_2")
 	public WebElement two ;

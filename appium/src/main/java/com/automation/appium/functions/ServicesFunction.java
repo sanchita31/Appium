@@ -12,10 +12,11 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
 public class ServicesFunction extends ServicesElement{
 	
-	public ServicesFunction(AndroidDriver<WebElement> driver) {
+	public ServicesFunction(AndroidDriver<AndroidElement> driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
 	}

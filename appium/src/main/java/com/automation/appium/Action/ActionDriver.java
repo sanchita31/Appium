@@ -22,6 +22,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.WaitOptions;
@@ -30,9 +31,9 @@ import io.appium.java_client.touch.offset.PointOption;
 public class ActionDriver extends BrowserAction{
 	
 	//BrowserAction b = new BrowserAction();
-	public AndroidDriver<WebElement> driver;
+	public AndroidDriver<AndroidElement> driver;
 	
-	public ActionDriver(AndroidDriver<WebElement> driver) {
+	public ActionDriver(AndroidDriver<AndroidElement> driver) {
 		this.driver = driver;
 	}
 	

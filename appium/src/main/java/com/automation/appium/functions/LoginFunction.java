@@ -23,6 +23,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class LoginFunction extends LoginElement
 {
@@ -30,11 +31,11 @@ public class LoginFunction extends LoginElement
 	By userId = By.id("et_email_address");
 	
 	
-	public LoginFunction(AndroidDriver<WebElement> driver) 
+	public LoginFunction(AndroidDriver<AndroidElement> driver) 
 	{
 		
 		super(driver);
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 		
 	}
 	ExcelReader excel = new ExcelReader();

@@ -9,9 +9,10 @@ import com.automation.appium.Action.ActionDriver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 
 public class IconsElement extends ActionDriver{
-	public IconsElement(AndroidDriver<WebElement> driver) {
+	public IconsElement(AndroidDriver<AndroidElement> driver) {
 		super(driver);
 	}
 	//appointment Section Section
