@@ -33,6 +33,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BrowserAction {
 	public static ExtentReports extent;
 	public static ExtentHtmlReporter htmlReporter;
+	public static ExtentTest test;
     
 	
 public static	AppiumDriver<MobileElement> driver;

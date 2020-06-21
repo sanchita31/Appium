@@ -32,8 +32,7 @@ public class LoginFunction extends LoginElement
 		
 	}
 	ExcelReader excel = new ExcelReader();
-	//ExtentReports report;
-	ExtentTest test;
+	
 		public void appLogin() throws IOException {
 			
 			try {

@@ -24,10 +24,10 @@ public class ServicesFunction extends ServicesElement{
 			clickElement(customizedFacials);
 			
 		}*/
-	    ExtentTest test;
 		public void selectSkinCare() throws IOException {
 			
 			try {
+				test = extent.createTest("skincare");
 				System.out.println("Entering SkinCare Flow");
 				
 				skinCare.click();
