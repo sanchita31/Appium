@@ -89,7 +89,7 @@ public class LoginFunction extends LoginElement
 				       .redirectErrorStream(true)
 				       .start();
 				} catch (IOException e) {
-				   e.printStackTrace();
+					System.out.println("Process builder not working ");
 				}
 				
 				System.out.println("Trying click and send ");
