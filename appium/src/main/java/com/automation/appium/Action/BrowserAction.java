@@ -28,6 +28,8 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.AndroidMobileCapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
@@ -47,18 +49,18 @@ public class BrowserAction {
 		cap.setCapability("ignoreUnimportantViews", true);
 		cap.setCapability("disableAndroidWatchers", true);
 		//cap.setCapability("", true);
-		cap.setCapability("deviceName", "OPPO A5");
-		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
-		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformVersion", "8.1.0");
-		cap.setCapability("noReset","true");
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "OPPO A5");
+		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		cap.setCapability("autoGrantPermissions","true");
 	
 		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
 		//cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
 		
-		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
-		cap.setCapability("appActivity", "com.massageenvy.consumer.ui.SplashActivity");
+		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.massageenvy.consumer.android.debug");
+		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.massageenvy.consumer.ui.SplashActivity");
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AndroidDriver(url, cap);
@@ -74,25 +76,19 @@ public class BrowserAction {
 		System.out.println("Starting........TestNGWith Parameter");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability("deviceName", "OPPO A5");
-		cap.setCapability("udid", "SOBAUSGA8LZPHUTK");
-		cap.setCapability("platformName", "Android");
-		cap.setCapability("platformValue", "8.1.0");
-		cap.setCapability("automationName", "uiautomator1");
-		cap.setCapability("noReset","true");
-		cap.setCapability("autoGrantPermissions","true");
-		/*cap.setCapability("appPackage", "com.oneplus.calculator");
-		cap.setCapability("appActivity", "com.oneplus.calculator.Calculator");
-		*/
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "OPPO A5");
+		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
+		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator1");
+		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
+		//cap.setCapability("autoGrantPermissions","true");
 		
-		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
-	    //cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
 		
-		cap.setCapability("appPackage", "com.massageenvy.consumer.android.debug");
-	    cap.setCapability("appActivity", "com.massageenvy.consumer.ui.MainActivity");	
 		
-		//cap.setCapability("appPackage", "com.bigbasket.mobileapp");
-		//cap.setCapability("appActivity", "com.bigbasket.mobileapp.activity.SplashActivity");
+		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.massageenvy.consumer.android.debug");
+	    cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.massageenvy.consumer.ui.MainActivity");	
+		
 		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		//driver = new AppiumDriver<MobileElement>(url, cap);
