@@ -214,10 +214,16 @@ public class ActionDriver extends BrowserAction{
     public void enterTextSendKeys(WebElement ele, String s) throws IOException {
    	 	System.out.println("Entere the value");
    	 	tapByCoordinates(225, 440);
-   	 	System.out.println("Tapped");
    	 	(ele).clear();
-   	 	System.out.println("Cleared");
    	 	ele.sendKeys(s);
+   	 	System.out.println("Entered");
+       }
+    
+    public void setValue(AndroidElement ele, String s) throws IOException {
+   	 	System.out.println("Entere the value");
+   	 //	tapByCoordinates(225, 440);
+   	 	ele.click();
+   	 	ele.setValue(s);
    	 	System.out.println("Entered");
        }
 }

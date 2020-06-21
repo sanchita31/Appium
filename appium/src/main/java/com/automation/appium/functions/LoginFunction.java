@@ -68,21 +68,20 @@ public class LoginFunction extends LoginElement
 				
 				Thread.sleep(5000);
 				
-				enterTextSendKeys(userName,username);
-				
+				//enterTextSendKeys(userName,username);
+				setValue(userName, username);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
 					createScreenCaptureFromPath(reportLog("username")).build());
 				
 				try
 				{
-					enterTextSendKeys(password, pass);		
-					
+					//enterTextSendKeys(password, pass);		
+					setValue(password, pass);
 					Thread.sleep(5000);
 					test.pass("password ", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("password")).build());
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
