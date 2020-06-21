@@ -31,7 +31,7 @@ public class LoginFunction extends LoginElement
 	By userId = By.id("et_email_address");
 	
 	
-	public LoginFunction(AndroidDriver<AndroidElement> driver) 
+	public LoginFunction(AndroidDriver driver) 
 	{
 		
 		super(driver);
@@ -92,6 +92,7 @@ public class LoginFunction extends LoginElement
 					//enterText(passId ,pass);
 					//enterTextSendKeys(password,pass);					
 					password.setValue(pass);
+					
 					/*AndroidElement alertElement1 =  driver.findElementById("et_password");
 					alertElement1.sendKeys(pass);*/
 					
@@ -109,7 +110,7 @@ public class LoginFunction extends LoginElement
 				//password.sendKeys(pass);
 				clickElement(login);
 				//login.click();
-				Thread.sleep(5000);
+				Thread.sleep(5000);	
 		
 				clickElement(bookIcon);
 				

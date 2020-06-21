@@ -13,7 +13,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginElement extends ActionDriver{
-	public LoginElement(AndroidDriver<AndroidElement> driver) {
+	public LoginElement(AndroidDriver driver) {
 		super(driver);
 	}
 	//Profile Section

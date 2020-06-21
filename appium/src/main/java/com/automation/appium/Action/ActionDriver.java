@@ -31,9 +31,9 @@ import io.appium.java_client.touch.offset.PointOption;
 public class ActionDriver extends BrowserAction{
 	
 	//BrowserAction b = new BrowserAction();
-	public AndroidDriver<AndroidElement> driver;
+	public AndroidDriver driver;
 	
-	public ActionDriver(AndroidDriver<AndroidElement> driver) {
+	public ActionDriver(AndroidDriver driver) {
 		this.driver = driver;
 	}
 	
