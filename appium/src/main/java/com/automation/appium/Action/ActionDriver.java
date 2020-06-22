@@ -57,7 +57,7 @@ public class ActionDriver extends BrowserAction{
 		return filePath;
 	}
 
-	public void isElementDisplayed(WebElement ele) {
+	public void isElementDisplayed(AndroidElement ele) {
 
 		if (ele.isDisplayed()) {
 			System.out.println("Element is available for operation");
@@ -66,7 +66,7 @@ public class ActionDriver extends BrowserAction{
 		}
 	}
 
-	public void clickElement(WebElement ele) {
+	public void clickElement(AndroidElement ele) {
 
 		try {
 			isElementDisplayed(ele);
@@ -223,7 +223,6 @@ public class ActionDriver extends BrowserAction{
     
     public void setValue(AndroidElement ele, String s) throws IOException {
    	 	System.out.println("Enter the value");
-   	 //	tapByCoordinates(225, 440);
    	 	ele.click();
    	 	ele.clear();
    	 	ele.setValue(s);

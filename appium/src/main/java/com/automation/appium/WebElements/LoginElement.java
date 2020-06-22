@@ -19,7 +19,6 @@ public class LoginElement extends ActionDriver{
 	//Profile Section
 	
 	@AndroidFindBy(id="navigation_profile")
-	//@FindBy(id="navigation_profile")
 	public AndroidElement profile ;
 	
 	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")

@@ -1,8 +1,6 @@
 package com.automation.appium.WebElements;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 import com.automation.appium.Action.ActionDriver;
 
@@ -10,64 +8,65 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class ServicesElement extends ActionDriver{
-	public ServicesElement(AndroidDriver<AndroidElement> driver) {
+	public ServicesElement(AndroidDriver driver) {
 		super(driver);
 	}
 	
 	//services Section Section
 	
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[1]")
-	public WebElement massage ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[1]")
+	public AndroidElement massage ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[2]")
-	public WebElement totalBodyStretch ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[2]")
+	public AndroidElement totalBodyStretch ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[3]")
-	public WebElement rapidTensionRelief ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[3]")
+	public AndroidElement rapidTensionRelief ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[4]")
-	public WebElement skinCare ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[4]")
+	public AndroidElement skinCare ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_name'])[1]")
-	public WebElement customizedFacials ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_name'])[1]")
+	public AndroidElement customizedFacials ;
 	
 	//Select Facial- 60 mins
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_boost_selection_count'])[1]")
-	public WebElement facialSixty ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_boost_selection_count'])[1]")
+	public AndroidElement facialSixty ;
 	
 	//Select first enhancement
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_boost_selection_count'])[1]")
-	public WebElement firstenhance ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_boost_selection_count'])[1]")
+	public AndroidElement firstenhance ;
 	
 	//Click on the next link
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/action_next'])")
-	public WebElement next ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/action_next'])")
+	public AndroidElement next ;
 	
 	//Click on the yes for restrictions
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/schedule_button'])")
-	public WebElement readyToSchedule ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/schedule_button'])")
+	public AndroidElement readyToSchedule ;
 
 	//Click on continue
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/continue_button'])")
-	public WebElement cont ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/continue_button'])")
+	public AndroidElement cont ;
 	
 	//Select 2nd therapist
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_select'])[2]")
-	public WebElement therapist;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_select'])[2]")
+	public AndroidElement therapist;
 
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_change_password']")
-	public WebElement scheduleAppointment;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/btn_change_password']")
+	public AndroidElement scheduleAppointment;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[2]")
-	public WebElement acneService ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[2]")
+	public AndroidElement acneService ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[3]")
-	public WebElement chemicalPeel ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[3]")
+	public AndroidElement chemicalPeel ;
 	
-	@FindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[4]")
-	public WebElement microDerm ;
+	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[4]")
+	public AndroidElement microDerm ;
 
 }

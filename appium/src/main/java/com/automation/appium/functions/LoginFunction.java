@@ -71,19 +71,19 @@ public class LoginFunction extends LoginElement
 				WebDriverWait wait = new WebDriverWait(driver, 10);
 				wait.until(ExpectedConditions.visibilityOf(userName));
 				tapByCoordinates(225, 440);
-				setValue(userName, username);
-					Thread.sleep(5000);
+				driver.findElement(userId).sendKeys(username);
+				//setValue(userName, username);
 					tapByCoordinates(110, 660);
 					Thread.sleep(2000);
-					setValue(password, pass);
+					driver.findElement(passId).sendKeys(pass);
+					//setValue(password, pass);
 					Thread.sleep(5000);
 				
 					test.pass("snapshotpassword ", MediaEntityBuilder.
 							createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
 			
 				
-				//userName.sendKeys(username);
-				//password.sendKeys(pass);
+				
 				clickElement(login);
 				//login.click();
 				Thread.sleep(5000);	
@@ -104,7 +104,7 @@ public class LoginFunction extends LoginElement
 			try {
 				two.click();
 				plus.click();
-				clickElement(three);
+				//clickElement(three);
 				equals.click();
 				
 			}catch(Exception e) {
