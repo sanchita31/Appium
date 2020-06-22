@@ -54,6 +54,7 @@ public class BrowserAction {
 		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator1");
 		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		cap.setCapability("autoGrantPermissions","true");
 	

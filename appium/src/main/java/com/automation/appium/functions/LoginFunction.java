@@ -58,7 +58,7 @@ public class LoginFunction extends LoginElement
 				test.pass("Login click", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Login click")).build());
 				
-			//	userName.clear();
+			  
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
 				
 				String username = userCred.get(0).toString().trim();
@@ -67,8 +67,10 @@ public class LoginFunction extends LoginElement
 			
 				
 				Thread.sleep(5000);
-				
+				System.out.println(username);
+				System.out.println(pass);
 				//enterTextSendKeys(userName,username);
+				  //userName.clear();
 				setValue(userName, username);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
@@ -76,16 +78,18 @@ public class LoginFunction extends LoginElement
 				
 				try
 				{
-					//enterTextSendKeys(password, pass);		
+					//enterTextSendKeys(password, pass);
+					//password.sendKeys(pass);
+					//enterText(password, pass);
 					setValue(password, pass);
 					Thread.sleep(5000);
-					test.pass("password ", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("password")).build());
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 				
-				
+				test.pass("snapshotpassword ", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
 				
 				//userName.sendKeys(username);
 				//password.sendKeys(pass);
@@ -132,6 +136,8 @@ public class LoginFunction extends LoginElement
 				verticalSwipeByPercentages(0.6, 0.3, 0.5);
 				
 				verticalSwipeByPercentages(0.6, 0.5, 0.3);
+				verticalSwipeByPercentages(0.6, 0.3, 0.5);
+				
 				//String Path1 = reportLog("HomeScreen");
 				test.pass("After Swiped", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("swipedVertical")).build());
