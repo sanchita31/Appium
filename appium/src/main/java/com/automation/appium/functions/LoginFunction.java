@@ -2,12 +2,15 @@ package com.automation.appium.functions;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.automation.appium.WebElements.LoginElement;
@@ -40,12 +43,14 @@ public class LoginFunction extends LoginElement
 	}
 	ExcelReader excel = new ExcelReader();
 	
+	
 		public void appLogin(String udid) throws IOException {
+			
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			try {
 				System.out.println("Entering appLogin method");
 				test = extent.createTest("appLogin");
-				
 				test.pass("Home Page", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Home Page")).build());
 				
@@ -53,43 +58,45 @@ public class LoginFunction extends LoginElement
 				test.pass("Profile Page", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Profile Page")).build());
 				
-				//reportLog("appLogin");
 				clickElement(login);
 				test.pass("Login click", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Login click")).build());
 				
-			  
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
-				
 				String username = userCred.get(0).toString().trim();
 				String pass = userCred.get(1).toString().trim();
-				
-			
-				
+				System.out.println("UserName :"+username +" password is :"+pass);
 				Thread.sleep(5000);
-				System.out.println(username);
-				System.out.println(pass);
-				//enterTextSendKeys(userName,username);
-				  //userName.clear();
+				
+				
+				WebDriverWait wait = new WebDriverWait(driver, 10);
+				wait.until(ExpectedConditions.visibilityOf(userName));
+				tapByCoordinates(225, 440);
 				setValue(userName, username);
 				Thread.sleep(5000);
 				test.pass("username ", MediaEntityBuilder.
 					createScreenCaptureFromPath(reportLog("username")).build());
+				
+				
+				
 				
 				try
 				{
 					//enterTextSendKeys(password, pass);
 					//password.sendKeys(pass);
 					//enterText(password, pass);
+					wait.until(ExpectedConditions.visibilityOf(password));
+					Thread.sleep(5000);
 					setValue(password, pass);
 					Thread.sleep(5000);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
+					test.pass("snapshotpassword ", MediaEntityBuilder.
+							createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
 				}
 				
-				test.pass("snapshotpassword ", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
+				
 				
 				//userName.sendKeys(username);
 				//password.sendKeys(pass);
