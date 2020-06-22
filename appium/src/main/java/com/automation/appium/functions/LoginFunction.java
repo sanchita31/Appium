@@ -68,35 +68,19 @@ public class LoginFunction extends LoginElement
 				System.out.println("UserName :"+username +" password is :"+pass);
 				Thread.sleep(5000);
 				
-				
 				WebDriverWait wait = new WebDriverWait(driver, 10);
 				wait.until(ExpectedConditions.visibilityOf(userName));
 				tapByCoordinates(225, 440);
 				setValue(userName, username);
-				Thread.sleep(5000);
-				test.pass("username ", MediaEntityBuilder.
-					createScreenCaptureFromPath(reportLog("username")).build());
-				
-				
-				
-				
-				try
-				{
-					//enterTextSendKeys(password, pass);
-					//password.sendKeys(pass);
-					//enterText(password, pass);
-					wait.until(ExpectedConditions.visibilityOf(password));
 					Thread.sleep(5000);
+					tapByCoordinates(110, 660);
+					Thread.sleep(2000);
 					setValue(password, pass);
 					Thread.sleep(5000);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
+				
 					test.pass("snapshotpassword ", MediaEntityBuilder.
 							createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
-				}
-				
-				
+			
 				
 				//userName.sendKeys(username);
 				//password.sendKeys(pass);
