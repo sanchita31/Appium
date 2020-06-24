@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -26,9 +28,10 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class LoginFunction extends LoginElement
+public class LoginFunction extends LoginElement 
 {
 	By passId = By.id("et_password");
 	By userId = By.id("et_email_address");
@@ -44,11 +47,11 @@ public class LoginFunction extends LoginElement
 	ExcelReader excel = new ExcelReader();
 	
 	
-		public void appLogin(String udid) throws IOException {
+		public void appLogin(String udid) throws IOException, InterruptedException, InvalidFormatException {
 			
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
-			try {
+		
 				System.out.println("Entering appLogin method");
 				test = extent.createTest("appLogin");
 				test.pass("Home Page", MediaEntityBuilder.
@@ -64,42 +67,94 @@ public class LoginFunction extends LoginElement
 				
 				List<String> userCred  = excel.getDetails("DataSheet", "Login");
 				String username = userCred.get(0).toString().trim();
-				String pass = userCred.get(1).toString().trim();
-				System.out.println("UserName :"+username +" password is :"+pass);
+				String passs = userCred.get(1).toString().trim();
+				
+				
+				
 				Thread.sleep(5000);
 				
-				WebDriverWait wait = new WebDriverWait(driver, 10);
-				wait.until(ExpectedConditions.visibilityOf(userName));
-				tapByCoordinates(225, 440);
-				driver.findElement(userId).sendKeys(username);
-				//setValue(userName, username);
-					tapByCoordinates(110, 660);
-					Thread.sleep(2000);
-					driver.findElement(passId).sendKeys(pass);
-					//setValue(password, pass);
-					Thread.sleep(5000);
+				/*
+				 * try { WebDriverWait wait = new WebDriverWait(driver, 10);
+				 * wait.until(ExpectedConditions.visibilityOf(userName)); tapByCoordinates(110,
+				 * 607); Thread.sleep(2000); enterTextSendKeys(password, pass);
+				 * 
+				 * tapByCoordinates(225, 440); enterTextSendKeys(userName, username);
+				 * 
+				 * Thread.sleep(2000); } catch (Exception e) { // TODO Auto-generated catch
+				 * block e.printStackTrace(); System.out.println(e); }
+				 */
 				
-					test.pass("snapshotpassword ", MediaEntityBuilder.
-							createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
+				//tapByCoordinates(110, 607);
+				//Thread.sleep(2000);
+				
+				
+				
+				tapByCoordinates(225, 440);
+				userName.clear();
+				setValue(userName, username);
+				System.out.println("Taking snapshot for username entered");
+				
+				//test.pass("snapshotusername ", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotusername")).build());
+				
+				Thread.sleep(2000);
+				tapByCoordinates(110, 607);
+				System.out.println("To enter Password now");
+				//passWord.sendKeys("Test1234!");
+				//enterTextSendKeys(passWord, "Test1234!");
+				
+				//driver.findElement(passId).sendKeys("Test1234!");
+				setValue(passWord, passs);
+				//test.pass("snapshotpassword ", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
+				clickElement(login);
+				//enterText(password, pass);
+				
+					//driver.findElement(passId).sendKeys("Test1234!");
+					
+				
+
+				
+				//driver.findElement(passId).sendKeys(pass);
+				//setValue(password, "Test1234!");
+				
+				//Thread.sleep(5000);
+				
 			
 				
+				//tapByCoordinates(225, 440);
 				
-				clickElement(login);
+				//driver.findElement(userId).sendKeys(username);
+				//driver.findElement(userId).sendKeys(Keys.TAB);
+				//setValue(userName, username);
+					
+				/*
+				 * test.pass("snapshotpassword ", MediaEntityBuilder.
+				 * createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
+				 */
+				
+				
+				//clickElement(login);
+				
 				//login.click();
-				Thread.sleep(5000);	
-		
-				clickElement(bookIcon);
+				Thread.sleep(5000);
+				bookIcon.click();
+				//clickElement(bookIcon);
 				
-			}catch(Exception e) {
+		}
+
+				
+				
+	
+			
+			/*catch(Exception e) {
 				
 				test.fail("Failed Login", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Failed Login")).build());
 				//e.printStackTrace();
 				//Assert.fail("Failed to login", e);
-			}
-		}
+			}*/
+			
 		
-		
+				
 		public void appCalc() {
 			try {
 				two.click();

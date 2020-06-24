@@ -49,23 +49,33 @@ public class BrowserAction {
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability("ignoreUnimportantViews", true);
 		cap.setCapability("disableAndroidWatchers", true);
-		//cap.setCapability("", true);
+		cap.setCapability("skipDeviceInitialization",true);
+		cap.setCapability("skipServerInstallation", true);
+		cap.setCapability("", true);
+		
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "OPPO A5");
 		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator1");
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1");		
 		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		cap.setCapability("autoGrantPermissions","true");
-	
+		
+		
+		//cap.setCapability("skipDeviceInitialization",true);
+		//cap.setCapability("skipServerInstallation", true);
+		//cap.setCapability("ignoreUnimportantViews", true);
 		//cap.setCapability("appPackage", "com.massageenvy.consumer.android.pwa.qa");
 		//cap.setCapability("appActivity", "io.ionic.starter.MainActivity");
 		
 		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.massageenvy.consumer.android.debug");
 		cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.massageenvy.consumer.ui.SplashActivity");
 		
+		
+		
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AndroidDriver(url, cap);
+		
 		System.out.println("App started");
 		ExtentTest test = extent.createTest("browser");
 		test.log(Status.PASS, "browserStep");
@@ -83,7 +93,7 @@ public class BrowserAction {
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator1");
-		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
+		//cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		//cap.setCapability("autoGrantPermissions","true");
 		
 		

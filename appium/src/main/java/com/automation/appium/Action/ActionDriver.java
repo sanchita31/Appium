@@ -211,11 +211,11 @@ public class ActionDriver extends BrowserAction{
         .start();
         
         }
-    public void enterTextSendKeys(WebElement ele, String s) throws IOException {
+    public void enterTextSendKeys(AndroidElement ele, String s) throws IOException {
    	 	System.out.println("Entere the value");
-   	 	tapByCoordinates(225, 440);
-   	    System.out.println("Co-ordinate tapped");
-   	 	(ele).clear();
+   	 	//tapByCoordinates(225, 440);
+   	    //System.out.println("Co-ordinate tapped");
+   	 	//(ele).clear();
    	    System.out.println("cleared the pre filled password");
    	 	ele.sendKeys(s);
    	 	System.out.println("Entered");
@@ -224,7 +224,7 @@ public class ActionDriver extends BrowserAction{
     public void setValue(AndroidElement ele, String s) throws IOException {
    	 	System.out.println("Enter the value");
    	 	ele.click();
-   	 	ele.clear();
+   	 	//ele.clear();
    	 	ele.setValue(s);
    	 	System.out.println("Entered");
        }

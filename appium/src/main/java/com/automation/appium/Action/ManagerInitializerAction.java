@@ -27,7 +27,7 @@ public class ManagerInitializerAction extends BrowserAction {
 			System.out.println("Before initialize login object");
 			login = new LoginFunction(driver);
 			System.out.println("Before initialize service object");
-			//service = new ServicesFunction(driver);
+			service = new ServicesFunction(driver);
 			//ap = new AppointmentFunction(driver);
 			//genActios = new ActionDriver(driver);
 			excel = new ExcelReader();

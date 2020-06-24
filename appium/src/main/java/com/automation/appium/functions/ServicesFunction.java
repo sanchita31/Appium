@@ -1,25 +1,34 @@
 package com.automation.appium.functions;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.automation.appium.WebElements.ServicesElement;
+import com.automation.appium.generic.Report;
+import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class ServicesFunction extends ServicesElement{
 	
-	public ServicesFunction(AndroidDriver<AndroidElement> driver) {
+	public ServicesFunction(AndroidDriver driver) 
+	{
+
 		super(driver);
-		PageFactory.initElements(driver, this);
-	}
+		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+		}
 
 		/*public void selectService() {
 			
@@ -27,11 +36,14 @@ public class ServicesFunction extends ServicesElement{
 			clickElement(customizedFacials);
 			
 		}*/
-		public void selectSkinCare() throws IOException {
+	
+		public void selectSkinCare(String udid) throws IOException 
+		{
+			System.out.println("Entering SkinCare Flow via service function");
+			//test = extent.createTest("selectSkinCare");
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
 			try {
-				test = extent.createTest("skincare");
-				System.out.println("Entering SkinCare Flow");
 				
 				skinCare.click();
 				
@@ -98,7 +110,8 @@ public class ServicesFunction extends ServicesElement{
 				}
 			
 			try {
-				clickElement(readyToSchedule);
+				readyToSchedule.click();
+				//clickElement(readyToSchedule);
 				test.pass("ready to schedule", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("ready to schedule")).build());
 			} catch (IOException e) {
@@ -107,6 +120,7 @@ public class ServicesFunction extends ServicesElement{
 			}
 			
 			try {
+				
 				clickElement(cont);
 				test.pass("Calender", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("Calender")).build());
@@ -141,8 +155,7 @@ public class ServicesFunction extends ServicesElement{
 					System.out.println("Done");
 					
 					verticalSwipeByPercentages(0.6, 0.3, 0.5);
-					
-					
+					tapByCoordinates1();
 					verticalSwipeByPercentages(0.6, 0.5, 0.3);
 					//String Path1 = reportLog("HomeScreen");
 					test.pass("After Swiped", MediaEntityBuilder.
@@ -154,11 +167,14 @@ public class ServicesFunction extends ServicesElement{
 					e.printStackTrace();
 				}
 				
+				System.out.println("about to click schdeule appointment");
+				scheduleAppointment.click();
+				//clickElement(scheduleAppointment);
 				
 				try {
 					test.pass("Schedule Appointment", MediaEntityBuilder.
 							createScreenCaptureFromPath(reportLog("Schedule Appointment")).build());
-					clickElement(scheduleAppointment);
+					
 					
 					System.out.println("Confirmation screen");
 					test.pass("Confirmation screen", MediaEntityBuilder.

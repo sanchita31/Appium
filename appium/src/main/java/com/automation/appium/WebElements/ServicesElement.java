@@ -10,12 +10,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class ServicesElement extends ActionDriver{
-	public ServicesElement(AndroidDriver driver) {
+public class ServicesElement extends ActionDriver
+{
+	public ServicesElement(AndroidDriver driver)
+	{
 		super(driver);
 	}
 	
-	//services Section Section
+	//services Section 
 	
 	
 	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/tv_service_group'])[1]")
