@@ -61,7 +61,7 @@ public class BrowserAction {
 		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		cap.setCapability("autoGrantPermissions","true");
 		
-		
+
 		//cap.setCapability("skipDeviceInitialization",true);
 		//cap.setCapability("skipServerInstallation", true);
 		//cap.setCapability("ignoreUnimportantViews", true);

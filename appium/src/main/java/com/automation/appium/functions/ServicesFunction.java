@@ -39,6 +39,8 @@ public class ServicesFunction extends ServicesElement{
 	
 		public void selectSkinCare(String udid) throws IOException 
 		{
+			
+			test = extent.createTest("selectSkinCare");
 			System.out.println("Entering SkinCare Flow via service function");
 			//test = extent.createTest("selectSkinCare");
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

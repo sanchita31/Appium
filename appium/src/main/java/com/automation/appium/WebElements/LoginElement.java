@@ -30,7 +30,11 @@ public class LoginElement extends ActionDriver
 	@AndroidFindBy(id="et_email_address")
 	public AndroidElement userName ;
 	
-	@AndroidFindBy(id="et_password")
+	
+	//@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/inputlayout_password'])[1]")
+	//public AndroidElement passWord ;
+	
+	@AndroidFindBy(id="inputlayout_password")
 	public AndroidElement passWord ;
 	
 	@AndroidFindBy(id="btn_login")

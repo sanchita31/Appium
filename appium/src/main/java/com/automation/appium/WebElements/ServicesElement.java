@@ -12,7 +12,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class ServicesElement extends ActionDriver
 {
-	public ServicesElement(AndroidDriver driver)
+	public ServicesElement(AndroidDriver<AndroidElement> driver)
 	{
 		super(driver);
 	}

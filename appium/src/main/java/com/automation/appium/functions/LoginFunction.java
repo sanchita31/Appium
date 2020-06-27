@@ -73,6 +73,19 @@ public class LoginFunction extends LoginElement
 				
 				Thread.sleep(5000);
 				
+				tapByCoordinates(225, 440); 
+				userName.clear();
+				MobileElement ele =(MobileElement)driver.findElement(userId);
+				ele.setValue("febchem@gmail.com");
+				
+				tapByCoordinates(110, 607);
+				System.out.println("To enter Password now ");
+				MobileElement ele1 = (MobileElement)driver.findElement(passId);
+				ele1.setValue("Test1234!");
+				System.out.println("Entered");
+				
+				clickElement(login);
+				
 				/*
 				 * try { WebDriverWait wait = new WebDriverWait(driver, 10);
 				 * wait.until(ExpectedConditions.visibilityOf(userName)); tapByCoordinates(110,
@@ -88,24 +101,42 @@ public class LoginFunction extends LoginElement
 				//Thread.sleep(2000);
 				
 				
+				/*
+				 * tapByCoordinates(225, 440); userName.clear(); setValue(userName, username);
+				 * System.out.println("Taking snapshot for username entered");
+				 * 
+				 * //test.pass("snapshotusername ",
+				 * MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotusername"))
+				 * .build());
+				 * 
+				 * Thread.sleep(2000); tapByCoordinates(110, 607);
+				 * System.out.println("To enter Password now");
+				 * //passWord.sendKeys("Test1234!"); //enterTextSendKeys(passWord, "Test1234!");
+				 * 
+				 * 
+				 * //driver.findElement(passId).sendKeys("Test1234!");
+				 */			
 				
-				tapByCoordinates(225, 440);
-				userName.clear();
-				setValue(userName, username);
-				System.out.println("Taking snapshot for username entered");
 				
-				//test.pass("snapshotusername ", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotusername")).build());
 				
-				Thread.sleep(2000);
-				tapByCoordinates(110, 607);
-				System.out.println("To enter Password now");
-				//passWord.sendKeys("Test1234!");
-				//enterTextSendKeys(passWord, "Test1234!");
 				
-				//driver.findElement(passId).sendKeys("Test1234!");
-				setValue(passWord, passs);
+				//List<AndroidElement> passWordSize = driver.findElements(By.id("et_password"));
+				//System.out.println(passWordSize.size());
+				//passWord.replaceValue("Test1234!");
+				//driver.getKeyboard().sendKeys("Test1234!");
+				
+				//driver.getKeyboard().pressKey("a");
+				//driver.getKeyboard().releaseKey("a");
+				
+				/*
+				 * try { setValue(passWord, passs); } catch (IOException e) { // TODO
+				 * Auto-generated catch block e.printStackTrace(); }
+				 */
 				//test.pass("snapshotpassword ", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
-				clickElement(login);
+				
+				Thread.sleep(5000);
+			
+				//clickElement(login);
 				//enterText(password, pass);
 				
 					//driver.findElement(passId).sendKeys("Test1234!");
