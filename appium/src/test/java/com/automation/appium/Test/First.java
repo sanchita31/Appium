@@ -13,14 +13,13 @@ public class First extends ManagerInitializerAction {
 	
 	
 	@Test(priority = 1)
-	@Parameters({"udid"})
-	public void LoginIntoApp(String udid) throws IOException, InvalidFormatException, InterruptedException 
+	public void LoginIntoApp() throws IOException, InvalidFormatException, InterruptedException 
 	{
 	
 		System.out.println("Sarting the test");
-		login.appLogin(udid);
+		login.appLogin();
 		System.out.println("Sarting with Skin Care");
-		service.selectSkinCare(udid);
+		service.selectSkinCare();
 		//genActios.swipeUp();
 		//ap.scheduleAppointment();
 		

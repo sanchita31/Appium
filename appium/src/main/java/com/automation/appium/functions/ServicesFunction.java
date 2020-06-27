@@ -37,7 +37,7 @@ public class ServicesFunction extends ServicesElement{
 			
 		}*/
 	
-		public void selectSkinCare(String udid) throws IOException 
+		public void selectSkinCare() throws IOException 
 		{
 			
 			test = extent.createTest("selectSkinCare");
