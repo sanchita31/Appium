@@ -17,15 +17,11 @@ import org.testng.Assert;
 
 import com.automation.appium.WebElements.LoginElement;
 import com.automation.appium.generic.ExcelReader;
-import com.automation.appium.generic.Report;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.MediaEntityModelProvider;
-import com.aventstack.extentreports.Status;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.functions.ExpectedCondition;
@@ -34,7 +30,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 public class LoginFunction extends LoginElement 
 {
 	By passId = By.id("et_password");
-	By userId = By.id("et_email_address");
+	By userId = By.id("com.massageenvy.consumer.android.qa:id/inputlayout_email_address");
 	
 	
 	public LoginFunction(AndroidDriver driver) 
@@ -46,144 +42,54 @@ public class LoginFunction extends LoginElement
 	}
 	ExcelReader excel = new ExcelReader();
 	
-	
-		public void appLogin(String udid) throws IOException, InterruptedException, InvalidFormatException {
+		public void appLogin() throws IOException, InterruptedException, InvalidFormatException {
 			
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			
+			List<String> userCred  = excel.getDetails("DataSheet", "Login");
+			String username = userCred.get(0).toString().trim();
+			String passs = userCred.get(1).toString().trim();
+
+			
+				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 				System.out.println("Entering appLogin method");
 				test = extent.createTest("appLogin");
 				test.pass("Home Page", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("Home Page")).build());
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
 				
-				clickElement(profile);
+				horizontalSwipeByPercentage(1.7, .3, .3);
+				System.out.println("1st");
+				horizontalSwipeByPercentage(1.7, .3, .3);
+				System.out.println("1st");
+				horizontalSwipeByPercentage(1.7, .3, .3);
+				
+				profile.click();
 				test.pass("Profile Page", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("Profile Page")).build());
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
 				
-				clickElement(login);
+				login.click();
 				test.pass("Login click", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("Login click")).build());
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
 				
-				List<String> userCred  = excel.getDetails("DataSheet", "Login");
-				String username = userCred.get(0).toString().trim();
-				String passs = userCred.get(1).toString().trim();
+				System.out.println("To enter username now");
+				MobileElement eleU = (MobileElement) userName;
+				eleU.setValue(username);
 				
+				System.out.println("To enter Password now");
+				passWord.setValue(passs);
 				
-				
-				Thread.sleep(5000);
-				
-				tapByCoordinates(225, 440); 
-				userName.clear();
-				MobileElement ele =(MobileElement)driver.findElement(userId);
-				ele.setValue("febchem@gmail.com");
-				
-				tapByCoordinates(110, 607);
-				System.out.println("To enter Password now ");
-				MobileElement ele1 = (MobileElement)driver.findElement(passId);
-				ele1.setValue("Test1234!");
 				System.out.println("Entered");
-				
-				clickElement(login);
-				
-				/*
-				 * try { WebDriverWait wait = new WebDriverWait(driver, 10);
-				 * wait.until(ExpectedConditions.visibilityOf(userName)); tapByCoordinates(110,
-				 * 607); Thread.sleep(2000); enterTextSendKeys(password, pass);
-				 * 
-				 * tapByCoordinates(225, 440); enterTextSendKeys(userName, username);
-				 * 
-				 * Thread.sleep(2000); } catch (Exception e) { // TODO Auto-generated catch
-				 * block e.printStackTrace(); System.out.println(e); }
-				 */
-				
-				//tapByCoordinates(110, 607);
-				//Thread.sleep(2000);
-				
-				
-				/*
-				 * tapByCoordinates(225, 440); userName.clear(); setValue(userName, username);
-				 * System.out.println("Taking snapshot for username entered");
-				 * 
-				 * //test.pass("snapshotusername ",
-				 * MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotusername"))
-				 * .build());
-				 * 
-				 * Thread.sleep(2000); tapByCoordinates(110, 607);
-				 * System.out.println("To enter Password now");
-				 * //passWord.sendKeys("Test1234!"); //enterTextSendKeys(passWord, "Test1234!");
-				 * 
-				 * 
-				 * //driver.findElement(passId).sendKeys("Test1234!");
-				 */			
-				
-				
-				
-				
-				//List<AndroidElement> passWordSize = driver.findElements(By.id("et_password"));
-				//System.out.println(passWordSize.size());
-				//passWord.replaceValue("Test1234!");
-				//driver.getKeyboard().sendKeys("Test1234!");
-				
-				//driver.getKeyboard().pressKey("a");
-				//driver.getKeyboard().releaseKey("a");
-				
-				/*
-				 * try { setValue(passWord, passs); } catch (IOException e) { // TODO
-				 * Auto-generated catch block e.printStackTrace(); }
-				 */
-				//test.pass("snapshotpassword ", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
-				
-				Thread.sleep(5000);
-			
-				//clickElement(login);
-				//enterText(password, pass);
-				
-					//driver.findElement(passId).sendKeys("Test1234!");
-					
-				
-
-				
-				//driver.findElement(passId).sendKeys(pass);
-				//setValue(password, "Test1234!");
-				
-				//Thread.sleep(5000);
-				
-			
-				
-				//tapByCoordinates(225, 440);
-				
-				//driver.findElement(userId).sendKeys(username);
-				//driver.findElement(userId).sendKeys(Keys.TAB);
-				//setValue(userName, username);
-					
-				/*
-				 * test.pass("snapshotpassword ", MediaEntityBuilder.
-				 * createScreenCaptureFromPath(reportLog("snapshotpassword")).build());
-				 */
-				
-				
-				//clickElement(login);
-				
-				//login.click();
-				Thread.sleep(5000);
-				bookIcon.click();
-				//clickElement(bookIcon);
-				
+				test.pass("Credential Entered", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
+				login.click();
+				test.pass("Login Clicked", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
+				MobileElement ele3 = (MobileElement) driver.findElementByAccessibilityId("Book");
+				ele3.click();
+				System.out.println("Book Icon clicked");
+				test.pass("Book clicked", MediaEntityBuilder.
+						createScreenCaptureFromPath(reportLog("appLogin")).build());
 		}
-
-				
-				
-	
-			
-			/*catch(Exception e) {
-				
-				test.fail("Failed Login", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("Failed Login")).build());
-				//e.printStackTrace();
-				//Assert.fail("Failed to login", e);
-			}*/
-			
 		
 				
 		public void appCalc() {

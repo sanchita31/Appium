@@ -1,5 +1,6 @@
 package com.automation.appium.WebElements;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,69 +15,65 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class LoginElement extends ActionDriver
 {
-	public LoginElement(AndroidDriver driver)
+	public LoginElement(AndroidDriver<AndroidElement> driver)
 	{
 		super(driver);
 	}
 	//Profile Section
 	
-	@AndroidFindBy(id="navigation_profile")
-	public AndroidElement profile ;
+	@FindBy(id="navigation_profile")
+	public WebElement profile ;
 	
 	@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/icon'])[3]")
-	public AndroidElement bookIcon ;
+	public WebElement bookIcon ;
 	
 	//Login Section 	
 	@AndroidFindBy(id="et_email_address")
-	public AndroidElement userName ;
+	public WebElement userName ;
 	
-	
-	//@AndroidFindBy(xpath="(//*[@resource-id='com.massageenvy.consumer.android.debug:id/inputlayout_password'])[1]")
-	//public AndroidElement passWord ;
-	
-	@AndroidFindBy(id="inputlayout_password")
-	public AndroidElement passWord ;
+	@AndroidFindBy(id="et_password")
+	public MobileElement passWord ;
 	
 	@AndroidFindBy(id="btn_login")
-	public AndroidElement login ;
+	public WebElement login ;
 
-	@FindBy(id="com.oneplus.calculator:id/digit_2")
+	@AndroidFindBy(id="com.oneplus.calculator:id/digit_2")
 	public WebElement two ;
 	
-	@FindBy(id="com.oneplus.calculator:id/digit_3")
-	public WebElement three ;
+	@AndroidFindBy(id="com.oneplus.calculator:id/digit_3")
+	public AndroidElement three ;
 	
-	@FindBy(id="com.oneplus.calculator:id/op_add")
-	public WebElement plus ;
-	
-	
-	@FindBy(id="com.oneplus.calculator:id/eq")
-	public WebElement equals ;
-	
-	@FindBy(id="com.oneplus.calculator:id/digit_5")
-	public WebElement five ;
-	
-	@FindBy(xpath="(//android.widget.ImageView[@content-desc='Product Image'])[4]/..")
-	public WebElement searchIcon ;
-	
-	@FindBy(id="com.bigbasket.mobileapp:id/homePageSearchBox")
-	public WebElement searchHomeBox ;
-	
-	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public WebElement searchHomeView ;
+	@AndroidFindBy(id="com.oneplus.calculator:id/op_add")
+	public AndroidElement plus ;
 	
 	
+	@AndroidFindBy(id="com.oneplus.calculator:id/eq")
+	public AndroidElement equals ;
 	
-	@FindBy(id="com.bigbasket.mobileapp:id/searchView")
-	public WebElement search ;
+	@AndroidFindBy(id="com.oneplus.calculator:id/digit_5")
+	public AndroidElement five ;
 	
-	@FindBy(id="action_my_account")
-	public WebElement myAccount ;
+	@AndroidFindBy(xpath="(//android.widget.ImageView[@content-desc='Product Image'])[4]/..")
+	public AndroidElement searchIcon ;
 	
-	@FindBy(id="com.bigbasket.mobileapp:id/textInputEmail")
-	public WebElement inputEmail ;
+	@AndroidFindBy(id="com.bigbasket.mobileapp:id/homePageSearchBox")
+	public AndroidElement searchHomeBox ;
 	
-	@FindBy(id="action_my_account")
-	public WebElement a ;
+	@AndroidFindBy(id="com.bigbasket.mobileapp:id/searchView")
+	public AndroidElement searchHomeView ;
+	
+	
+	
+	@AndroidFindBy(id="com.bigbasket.mobileapp:id/searchView")
+	public AndroidElement search ;
+	
+	@AndroidFindBy(id="action_my_account")
+	public AndroidElement myAccount ;
+	
+	@AndroidFindBy(id="com.bigbasket.mobileapp:id/textInputEmail")
+	public AndroidElement inputEmail ;
+	
+	@AndroidFindBy(id="action_my_account")
+	public AndroidElement a ;
 
 }
