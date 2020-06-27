@@ -31,7 +31,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class BrowserAction {
@@ -57,11 +56,11 @@ public class BrowserAction {
 		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1");		
+		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");		
 		cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		cap.setCapability("autoGrantPermissions","true");
 		
-
+		
 		//cap.setCapability("skipDeviceInitialization",true);
 		//cap.setCapability("skipServerInstallation", true);
 		//cap.setCapability("ignoreUnimportantViews", true);
@@ -88,23 +87,28 @@ public class BrowserAction {
 		System.out.println("Starting........TestNGWith Parameter");
 		
 		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "OPPO A5");
-		cap.setCapability(MobileCapabilityType.UDID, "SOBAUSGA8LZPHUTK");
+		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "One plus");
+		cap.setCapability(MobileCapabilityType.UDID, "4079254e");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0");
+		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0.0");
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator1");
 		//cap.setCapability(MobileCapabilityType.NO_RESET,"true");
 		//cap.setCapability("autoGrantPermissions","true");
+		cap.setCapability(MobileCapabilityType.APP, "D:\\SW And ImpDocs\\ME.apk");
+		//cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.massageenvy.consumer.android.qa");
+		//  cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.massageenvy.consumer.ui.SplashActivity");	
 		
+	    URL url = new URL("http://127.0.0.1:4723/wd/hub");
+		try {
+			driver = new AndroidDriver(url, cap);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
-		cap.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.massageenvy.consumer.android.debug");
-	    cap.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, "com.massageenvy.consumer.ui.MainActivity");	
-		
-		
-		URL url = new URL("http://127.0.0.1:4723/wd/hub");
-		//driver = new AppiumDriver<MobileElement>(url, cap);
 		System.out.println("App started");
+		ExtentTest test = extent.createTest("browser");
+		test.log(Status.PASS, "browserStep");
 		Thread.sleep(5000);
 		
 	}
@@ -112,13 +116,11 @@ public class BrowserAction {
 	@BeforeSuite
 	public void beforeSuite() {
 		extent = Report.getInstance("ReportView");
-		/*extent = new ExtentReports();
-		extent.attachReporter(htmlReporter);*/
 	}
 	
 	@BeforeTest
 	public void start() throws InterruptedException, MalformedURLException {
-		AppStartup();
+		AppStartup1();
 		System.out.println("App started successfully");
 	}
 	
