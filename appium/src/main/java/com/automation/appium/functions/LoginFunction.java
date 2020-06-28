@@ -24,6 +24,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.functions.ExpectedCondition;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -57,11 +58,18 @@ public class LoginFunction extends LoginElement
 				test.pass("Home Page", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("appLogin")).build());
 				
-				horizontalSwipeByPercentage(1.7, .3, .3);
+				
+				horizontalSwipeByPercentage(1.1, 0.05, 0.5);
 				System.out.println("1st");
-				horizontalSwipeByPercentage(1.7, .3, .3);
-				System.out.println("1st");
-				horizontalSwipeByPercentage(1.7, .3, .3);
+				
+			
+				horizontalSwipeByPercentage(1.1, 0.05, 0.5);
+				System.out.println("2nd");
+				
+				driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Get Started\")").click();
+				//Thread.sleep(5000);
+				
+				//horizontalSwipeByPercentage(1.7, .3, .3);
 				
 				profile.click();
 				test.pass("Profile Page", MediaEntityBuilder.
@@ -72,20 +80,46 @@ public class LoginFunction extends LoginElement
 						createScreenCaptureFromPath(reportLog("appLogin")).build());
 				
 				System.out.println("To enter username now");
+				userName.clear();
 				MobileElement eleU = (MobileElement) userName;
 				eleU.setValue(username);
 				
+				//Thread.sleep(2000);
+				
 				System.out.println("To enter Password now");
+				Thread.sleep(5000);
 				passWord.setValue(passs);
 				
+			//	MobileElement passbox = ((AndroidDriver<MobileElement>)driver).findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.massageenvy.consumer.android.qa:id/et_password\")");
+			//	passbox.
+				
+				//System.out.println("Password Box Name - " + passbox.sendKeys("Test1234!"));
+				
+				//passWord.click();
+				//(driver).pressKeyCode(AndroidKeyCode.KEYCODE_T);
+				//(driver).pressKeyCode(AndroidKeyCode.KEYCODE_E);
+				//(driver).pressKeyCode(AndroidKeyCode.KEYCODE_S);
+				//(driver).pressKeyCode(AndroidKeyCode.KEYCODE_T);
+				
+				//MobileElement eleU2 = (MobileElement) passWord;
+				//eleU2.setValue(passs);
+				//passWord.click();
+				//passWord.setValue(passs);
+				
 				System.out.println("Entered");
-				test.pass("Credential Entered", MediaEntityBuilder.
-						createScreenCaptureFromPath(reportLog("appLogin")).build());
+				Thread.sleep(5000);
+				
+					//test.pass("Credential Entered", MediaEntityBuilder.
+							//createScreenCaptureFromPath(reportLog("appLogin")).build());
+				
 				login.click();
 				test.pass("Login Clicked", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("appLogin")).build());
+				Thread.sleep(2000);
+				
 				MobileElement ele3 = (MobileElement) driver.findElementByAccessibilityId("Book");
 				ele3.click();
+				Thread.sleep(5000);
 				System.out.println("Book Icon clicked");
 				test.pass("Book clicked", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("appLogin")).build());

@@ -20,11 +20,10 @@ public class First extends ManagerInitializerAction {
 		login.appLogin();
 		System.out.println("Sarting with Skin Care");
 		service.selectSkinCare();
+		chempeel.selectChemPeel();
 		//genActios.swipeUp();
 		//ap.scheduleAppointment();
 		
-		
-	
 		
 	
 }

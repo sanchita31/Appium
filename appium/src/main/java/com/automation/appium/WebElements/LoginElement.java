@@ -29,7 +29,7 @@ public class LoginElement extends ActionDriver
 	
 	//Login Section 	
 	@AndroidFindBy(id="et_email_address")
-	public WebElement userName ;
+	public MobileElement userName ;
 	
 	@AndroidFindBy(id="et_password")
 	public MobileElement passWord ;

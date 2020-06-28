@@ -52,7 +52,7 @@ public class ActionDriver extends BrowserAction{
 		return filePath;
 	}
 
-	public void isElementDisplayed(AndroidElement ele) {
+	public void isElementDisplayed(WebElement ele) {
 
 		if (ele.isDisplayed()) {
 			System.out.println("Element is available for operation");
@@ -61,7 +61,7 @@ public class ActionDriver extends BrowserAction{
 		}
 	}
 
-	public void clickElement(AndroidElement ele) {
+	public void clickElement(WebElement ele) {
 
 		try {
 			isElementDisplayed(ele);
@@ -149,7 +149,7 @@ public class ActionDriver extends BrowserAction{
         new TouchAction(driver)
                 .press(PointOption.point(anchor, startPoint))
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-                .moveTo(PointOption.point(anchor, endPoint))
+                .moveTo(PointOption.point(anchor, anchor))
                 .release().perform();
     }
     
@@ -163,7 +163,7 @@ public class ActionDriver extends BrowserAction{
 			new TouchAction(driver)
 			        .press(PointOption.point(anchor, startPoint))
 			        .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-			        .moveTo(PointOption.point(anchor, endPoint))
+			        .moveTo(PointOption.point(endPoint, startPoint))
 			        .release().perform();
 		} catch (Exception e) {
 			System.out.println("Unable to swipe");

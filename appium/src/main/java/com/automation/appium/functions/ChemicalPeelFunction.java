@@ -1,12 +1,9 @@
 package com.automation.appium.functions;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,9 +21,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
-public class ServicesFunction extends ServicesElement {
+public class ChemicalPeelFunction extends ServicesElement {
 
-	public ServicesFunction(AndroidDriver driver) {
+	public ChemicalPeelFunction(AndroidDriver driver) {
 
 		super(driver);
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
@@ -40,58 +37,21 @@ public class ServicesFunction extends ServicesElement {
 	 * }
 	 */
 
-	public void selectSkinCare() throws IOException, InterruptedException {
-		
+	public void selectChemPeel() throws IOException, InterruptedException {
 
-		test = extent.createTest("selectSkinCare");
-		System.out.println("Entering SkinCare Flow via service function");
+		test = extent.createTest("selectChemPeel");
+		System.out.println("Entering Chemical Peel Flow via Service Function");
 		// test = extent.createTest("selectSkinCare");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		try {
 			Thread.sleep(2000);
-			
-			List<MobileElement> l = new ArrayList<MobileElement>();
-			l = driver.findElements(By.id("tv_service_group"));
-			int n = l.size();
-			StringBuilder sb  = new StringBuilder();
-							
-			for(int i=0; i<n ; i++) 
-			{
-			 sb.append(l.get(i).getText().toString()+" , ");
-			}
-							
-			System.out.println(sb.toString());
-			
-			if(!l.get(0).getText().equalsIgnoreCase("MASAGE")) {
-			System.out.println("MASAGE is expected");
-				//fail cond
-			
-			
-			test.fail("MASAGE is expected",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
-			}else if(!l.get(1).getText().equalsIgnoreCase("TOTAL BODY STRETCH")) {
-				
-				System.out.println("TBS is not avilable");
-				//fail cond
-			}else if(!l.get(2).getText().equalsIgnoreCase("RAPID TENSION RELIEF")) {
-				System.out.println("RTR is not avilable");
-				//fail cond
-			}else if(!l.get(3).getText().equalsIgnoreCase("SKIN CARE")) {
-				System.out.println("SC is not avilable");
-				//fail cond
-			}else {
-				System.out.println("Elelemts present :");
-				l.toString();
-				test.pass(sb.toString(),
-						MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());	
-			}
 
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"SKIN CARE\")").click();
 			// clickElement(skinCare);
 			Thread.sleep(2000);
 			test.pass("Skincare Service Screen",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		}
 		
 		catch (IOException e) {
@@ -102,31 +62,25 @@ public class ServicesFunction extends ServicesElement {
 
 		try {
 
-			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"CUSTOMIZED FACIALS\")").click();
+			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"CHEMICAL PEEL\")").click();
 			Thread.sleep(1000);
 			// clickElement(customizedFacials);
 			test.pass("Customized Facial Screen",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		
 		try {
 			Thread.sleep(1000);
-			//driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Select\").instance(5)").click();
-			
-			System.out.println("Scrol down");
-			verticalSwipeByPercentages(0.6, 0.3, 0.5);
-			Thread.sleep(1000);
-			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Select\").instance(2)").click();
-			//driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Select\")").click();
-			//driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(2))");
+			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Select\")").click();			
 			// clickElement(facialSixty);
 			Thread.sleep(1000);
 			test.pass("60min Facial Selected",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -137,7 +91,7 @@ public class ServicesFunction extends ServicesElement {
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"ADD ENHANCEMENT\")").click();
 			// clickElement(firstenhance);
 			test.pass("Select the enhancement",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -151,7 +105,7 @@ public class ServicesFunction extends ServicesElement {
 			// test.log(Status.PASS, "AppLogin Success");
 			// String Path = reportLog("HomeScreen");
 			test.pass("restrictions before scroll",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 			System.out.println("Done");
 
 			
@@ -171,9 +125,9 @@ public class ServicesFunction extends ServicesElement {
 			
 			// String Path1 = reportLog("HomeScreen");
 			test.pass("After Swiped",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("swipedVertical")).build());
 
-//swipeUp();
+			//swipeUp();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -185,7 +139,7 @@ public class ServicesFunction extends ServicesElement {
 			// readyToSchedule.click();
 			// clickElement(readyToSchedule);
 			test.pass("ready to schedule",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -197,7 +151,7 @@ public class ServicesFunction extends ServicesElement {
 			cont.click();
 			
 			// clickElement(cont);
-			test.pass("Calender", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+			test.pass("Calender", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 			Thread.sleep(5000);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -211,7 +165,7 @@ public class ServicesFunction extends ServicesElement {
 
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Select\")").click();
 			// clickElement(therapist);
-			test.pass("Therapist", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+			test.pass("Therapist", MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -223,13 +177,10 @@ public class ServicesFunction extends ServicesElement {
 			// test.log(Status.PASS, "AppLogin Success");
 			// String Path = reportLog("HomeScreen");
 			test.pass("review and book",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 			System.out.println("Done");
 
 			verticalSwipeByPercentages(0.6, 0.3, 0.5);
-			tapByCoordinates1();
-			
-			verticalSwipeByPercentages(0.6, 0.5, 0.3);
 			tapByCoordinates1();
 			
 			Thread.sleep(3000);
@@ -237,7 +188,7 @@ public class ServicesFunction extends ServicesElement {
 			System.out.println("Final Tap done");
 			// String Path1 = reportLog("HomeScreen");
 			test.pass("After Swiped",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -257,11 +208,11 @@ public class ServicesFunction extends ServicesElement {
 
 			Thread.sleep(1000);
 			test.pass("Schedule Appointment",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 
 			System.out.println("Confirmation screen");
 			test.pass("Confirmation screen",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -272,11 +223,11 @@ public class ServicesFunction extends ServicesElement {
 
 			Thread.sleep(1000);
 			test.pass("Schedule Appointment",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 
 			System.out.println("My Appointment");
 			test.pass("Confirmation screen",
-					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
+					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectChemPeel")).build());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
