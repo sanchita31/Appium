@@ -21,11 +21,12 @@ public class First extends ManagerInitializerAction {
 		System.out.println("Sarting with Skin Care");
 		service.selectSkinCare();
 		chempeel.selectChemPeel();
+		acne.selectacne();
+		micro.selectmicro();
+		
 		//genActios.swipeUp();
 		//ap.scheduleAppointment();
 		
-		
-	
 }
 	
 	

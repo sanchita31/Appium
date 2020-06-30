@@ -1,6 +1,7 @@
 package com.automation.appium.functions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -119,10 +120,30 @@ public class LoginFunction extends LoginElement
 				
 				MobileElement ele3 = (MobileElement) driver.findElementByAccessibilityId("Book");
 				ele3.click();
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 				System.out.println("Book Icon clicked");
 				test.pass("Book clicked", MediaEntityBuilder.
 						createScreenCaptureFromPath(reportLog("appLogin")).build());
+				
+				
+				/*
+				 * //Validation for the navigation Home tab below
+				 * 
+				 * WebElement home=driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Home\")");
+				 * int numb=4; 
+				 * StringBuilder sb = new StringBuilder();
+				 * sb.append((home).getText().toString()+ " ");
+				 * 
+				 * if(!home.getText().equalsIgnoreCase("HOME")) {
+				 * System.out.println("HOME is expected"); } else {
+				 * System.out.println("Home is expected"); test.pass("Home Icon Displayed",
+				 * MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).
+				 * build());
+				 * 
+				 * }
+				 */	
+				
+				
 		}
 		
 				

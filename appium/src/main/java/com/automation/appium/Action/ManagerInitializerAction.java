@@ -4,10 +4,12 @@ import org.apache.poi.poifs.property.Child;
 import org.testng.annotations.BeforeMethod;
 
 import com.automation.appium.WebElements.IconsElement;
+import com.automation.appium.functions.AcneSeriesFunction;
 import com.automation.appium.functions.AppointmentFunction;
 import com.automation.appium.functions.ChemicalPeelFunction;
 //import com.automation.appium.functions.IconsFunction;
 import com.automation.appium.functions.LoginFunction;
+import com.automation.appium.functions.MicrodermFunction;
 import com.automation.appium.functions.ServicesFunction;
 import com.automation.appium.generic.ExcelReader;
 import com.automation.appium.generic.Report;
@@ -18,6 +20,8 @@ public class ManagerInitializerAction extends BrowserAction {
 	protected AppointmentFunction ap;
 	protected ServicesFunction service;
 	protected ChemicalPeelFunction chempeel;
+	protected MicrodermFunction micro;
+	protected AcneSeriesFunction acne;
 	protected ActionDriver genActios;
 	protected ExcelReader excel;
 	
@@ -31,6 +35,9 @@ public class ManagerInitializerAction extends BrowserAction {
 			System.out.println("Before initialize service object");
 			service = new ServicesFunction(driver);
 			chempeel = new ChemicalPeelFunction(driver);
+			acne = new AcneSeriesFunction(driver);
+			micro = new MicrodermFunction(driver);
+			
 			//ap = new AppointmentFunction(driver);
 			//genActios = new ActionDriver(driver);
 			excel = new ExcelReader();
