@@ -108,7 +108,7 @@ public class ServicesFunction extends ServicesElement {
 			System.out.println("Customized Facials is clicked");
 
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"CUSTOMIZED FACIALS\")").click();
-			Thread.sleep(1000);
+			//Thread.sleep(1000);
 			System.out.println("60Min Customized facial to be clicked");
 			// clickElement(customizedFacials);
 			test.pass("60Min Customized facial",
