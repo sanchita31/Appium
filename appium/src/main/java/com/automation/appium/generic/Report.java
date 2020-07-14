@@ -47,7 +47,6 @@ public class Report {
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         //extent = extentReport.createTest(testname);
-
         return extent;
         
 	}

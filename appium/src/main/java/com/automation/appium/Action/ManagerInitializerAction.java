@@ -7,6 +7,7 @@ import com.automation.appium.WebElements.IconsElement;
 import com.automation.appium.functions.AcneSeriesFunction;
 import com.automation.appium.functions.AppointmentFunction;
 import com.automation.appium.functions.ChemicalPeelFunction;
+import com.automation.appium.functions.IonicAppLoginFunction;
 //import com.automation.appium.functions.IconsFunction;
 import com.automation.appium.functions.LoginFunction;
 import com.automation.appium.functions.MicrodermFunction;
@@ -24,8 +25,8 @@ public class ManagerInitializerAction extends BrowserAction {
 	protected AcneSeriesFunction acne;
 	protected ActionDriver genActios;
 	protected ExcelReader excel;
+	protected IonicAppLoginFunction ionic;
 	
-
 	@BeforeMethod
 	public void initialize() {
 		
@@ -37,6 +38,7 @@ public class ManagerInitializerAction extends BrowserAction {
 			chempeel = new ChemicalPeelFunction(driver);
 			acne = new AcneSeriesFunction(driver);
 			micro = new MicrodermFunction(driver);
+			//ionic = new IonicAppLoginFunction(driver11);
 			
 			//ap = new AppointmentFunction(driver);
 			//genActios = new ActionDriver(driver);

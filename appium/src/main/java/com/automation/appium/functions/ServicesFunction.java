@@ -55,7 +55,7 @@ public class ServicesFunction extends ServicesElement {
 			l = driver.findElements(By.id("tv_service_group"));
 			int n = l.size();
 			StringBuilder sb  = new StringBuilder();
-							
+						
 			for(int i=0; i<n ; i++) 
 			{
 			 sb.append(l.get(i).getText().toString()+" , ");
@@ -175,7 +175,6 @@ public class ServicesFunction extends ServicesElement {
 			System.out.println("Final Tap done");
 			
 			// String Path1 = reportLog("HomeScreen");
-			Thread.sleep(1000);
 			test.pass("ready to scheduled",
 					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectSkinCare")).build());
 

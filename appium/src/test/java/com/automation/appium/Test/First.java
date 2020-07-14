@@ -1,17 +1,22 @@
 package com.automation.appium.Test;
 
 import java.io.IOException;
+import java.net.URL;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.automation.appium.Action.BrowserAction;
 import com.automation.appium.Action.ManagerInitializerAction;
 //import com.beust.jcommander.Parameters;
 
+
 public class First extends ManagerInitializerAction {
 	
-	
+
 	@Test(priority = 1)
 	public void LoginIntoApp() throws IOException, InvalidFormatException, InterruptedException 
 	{
@@ -24,11 +29,12 @@ public class First extends ManagerInitializerAction {
 		acne.selectacne();
 		micro.selectmicro();
 		
-		//genActios.swipeUp();
-		//ap.scheduleAppointment();
+		//System.out.println("Sarting the Ionic test");
 		
-}
+		
+	
+	}}
+
 	
 	
 	
-}

@@ -232,7 +232,6 @@ public class AcneSeriesFunction extends ServicesElement {
 			System.out.println("Click on Done");
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"DONE\")").click();
 		try {
-
 			System.out.println("Acne Flow over landing on Booking Page");
 			test.pass("Book Screen",
 					MediaEntityBuilder.createScreenCaptureFromPath(reportLog("selectacne")).build());

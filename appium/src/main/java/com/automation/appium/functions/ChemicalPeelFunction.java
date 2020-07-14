@@ -36,7 +36,6 @@ public class ChemicalPeelFunction extends ServicesElement {
 	 * 
 	 * }
 	 */
-
 	public void selectChemPeel() throws IOException, InterruptedException {
 
 		test = extent.createTest("selectChemPeel");

@@ -21,6 +21,7 @@ public class LoginElement extends ActionDriver
 	}
 	//Profile Section
 	
+	
 	@FindBy(id="navigation_profile")
 	public WebElement profile ;
 	
